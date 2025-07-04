@@ -24,19 +24,20 @@ namespace Capa_negocios
                 conn.Open();
 
                 // TODO comando sql para que se guarden los datos que inserte el usuario en la base de datos
-                string query = "INSERT INTO Factura (IdCliente, Nombre, Telefono, RNC, Fecha, Descripcion, Precio, Cantidad, SubTotal, Descuento, Tipo)" +
-                                 "VALUES (@IdCliente, @Nombre, @Telefono, @RNC, @Fecha, @Descripcion, @Precio, @Cantidad, @SubTotal, @Descuento, @Tipo)";
+                string query = "INSERT INTO Factura (Nombre, Telefono, RNC, Fecha, Descripcion, Precio, Cantidad, Descuento, Tipo)" +
+                                 "VALUES (@Nombre, @Telefono, @RNC, @Fecha, @Descripcion, @Precio, @Cantidad, @Descuento, @Tipo)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@IdCliente", (object?)factura.IdCliente ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Cliente", factura.Persona.Nombre);
+     
+                cmd.Parameters.AddWithValue("@Nombre", factura.Cliente.Nombre);
                 cmd.Parameters.AddWithValue("@Telefono", factura.Cliente.Telefono);
                 cmd.Parameters.AddWithValue("@RNC", factura.Cliente.RNC);
                 cmd.Parameters.AddWithValue("@Fecha", factura.Fecha);
                 cmd.Parameters.AddWithValue("@Descripcion", factura.Descripcion);
                 cmd.Parameters.AddWithValue("@Precio", factura.Precio);
                 cmd.Parameters.AddWithValue("@Cantidad", factura.Cantidad);
-                cmd.Parameters.AddWithValue("@Tipo", factura.Tipo);
+                cmd.Parameters.AddWithValue("@Descuento", factura.Descuento);
+                cmd.Parameters.AddWithValue("@Tipo", factura.ObtenerTipoFactura());
 
                 retorna = cmd.ExecuteNonQuery();
 
@@ -45,7 +46,8 @@ namespace Capa_negocios
             return retorna;
         }
 
-        public void GenerarFactura()
+
+       /* public void GenerarFactura()
         {
             DataTable dt = new DataTable();
 
@@ -59,7 +61,7 @@ namespace Capa_negocios
                 adapt.Fill(dt);
 
                 conn.Close();
-            }
-        }
+            }*/
     }
+
 }

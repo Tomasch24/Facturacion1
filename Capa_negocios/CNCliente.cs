@@ -9,16 +9,19 @@ namespace Capa_negocios
     public class CNCliente : CNPersona
     {
         public int IdCliente { get; set; }
-        public string Telefono { get; set; }
-        public string RNC { get; set; }
-        public string Descuento { get; set; }
+        public decimal Descuento { get; set; }
 
-        public CNCliente(string nombre, string telefono, string rnc, string descuento)
-            : base(nombre)
+        public string Correo { get; set; }
+
+        public CNCliente(string nombre, string telefono, string rnc, decimal descuento)
+            : base(nombre, telefono, rnc)
         {
-            Telefono = telefono;
-            RNC = rnc;
             Descuento = descuento;
+        }
+
+        public override string ObtenerIdentificacion()
+        {
+            return $"Cliente RNC: {RNC}";
         }
     }
 }

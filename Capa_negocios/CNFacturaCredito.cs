@@ -9,11 +9,8 @@ namespace Capa_negocios
 {
     public class FacturaCredito : Factura
     {
-        public FacturaCredito()
-        {
+        public FacturaCredito(CNCliente cliente) : base(cliente) { }
 
-        }
-        //TODO Se utiliza el "override" para sobrescribir el tipo
-        public override string Tipo => "Credito";
+        public override string ObtenerTipoFactura() => "Crédito";
     }
 }

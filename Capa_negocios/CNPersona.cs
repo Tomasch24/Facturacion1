@@ -9,12 +9,16 @@ namespace Capa_negocios
     public abstract class CNPersona
     {
         public string Nombre { get; set; }
-        public CNPersona(string nombre)
+        public string Telefono { get; set; }
+        public string RNC { get; set; }
+
+        public CNPersona(string nombre, string telefono, string rnc)
         {
             Nombre = nombre;
+            Telefono = telefono;
+            RNC = rnc;
         }
 
-
-
+        public abstract string ObtenerIdentificacion(); // Método abstracto
     }
 }

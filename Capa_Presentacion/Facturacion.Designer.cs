@@ -60,15 +60,18 @@
             txtDescuento = new TextBox();
             lblId = new Label();
             textBox1 = new TextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblCliente
             // 
             lblCliente.AutoSize = true;
-            lblCliente.BackColor = Color.Transparent;
+            lblCliente.BackColor = Color.DimGray;
+            lblCliente.FlatStyle = FlatStyle.Flat;
             lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCliente.Location = new Point(30, 127);
             lblCliente.Name = "lblCliente";
@@ -79,7 +82,7 @@
             // lblTelef
             // 
             lblTelef.AutoSize = true;
-            lblTelef.BackColor = Color.Transparent;
+            lblTelef.BackColor = Color.DimGray;
             lblTelef.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelef.Location = new Point(29, 173);
             lblTelef.Name = "lblTelef";
@@ -90,7 +93,7 @@
             // lblRnc
             // 
             lblRnc.AutoSize = true;
-            lblRnc.BackColor = Color.Transparent;
+            lblRnc.BackColor = Color.DimGray;
             lblRnc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRnc.Location = new Point(29, 225);
             lblRnc.Name = "lblRnc";
@@ -101,9 +104,9 @@
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.BackColor = Color.Transparent;
+            lblDescripcion.BackColor = Color.DimGray;
             lblDescripcion.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDescripcion.Location = new Point(30, 365);
+            lblDescripcion.Location = new Point(30, 366);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(262, 32);
             lblDescripcion.TabIndex = 4;
@@ -112,7 +115,7 @@
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.BackColor = Color.Transparent;
+            lblPrecio.BackColor = Color.DimGray;
             lblPrecio.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPrecio.Location = new Point(29, 497);
             lblPrecio.Name = "lblPrecio";
@@ -125,7 +128,7 @@
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.Transparent;
             lblCantidad.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCantidad.Location = new Point(29, 539);
+            lblCantidad.Location = new Point(30, 538);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(99, 27);
             lblCantidad.TabIndex = 6;
@@ -134,7 +137,7 @@
             // lblTipo
             // 
             lblTipo.AutoSize = true;
-            lblTipo.BackColor = Color.Transparent;
+            lblTipo.BackColor = Color.DimGray;
             lblTipo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTipo.Location = new Point(29, 586);
             lblTipo.Name = "lblTipo";
@@ -145,9 +148,9 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
+            label9.BackColor = Color.DimGray;
             label9.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(29, 276);
+            label9.Location = new Point(29, 277);
             label9.Name = "label9";
             label9.Size = new Size(70, 27);
             label9.TabIndex = 9;
@@ -156,18 +159,18 @@
             // lblSistema
             // 
             lblSistema.AutoSize = true;
-            lblSistema.BackColor = Color.Transparent;
+            lblSistema.BackColor = Color.DimGray;
             lblSistema.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSistema.Location = new Point(57, 15);
+            lblSistema.Location = new Point(164, 9);
             lblSistema.Name = "lblSistema";
-            lblSistema.Size = new Size(575, 41);
+            lblSistema.Size = new Size(211, 41);
             lblSistema.TabIndex = 11;
-            lblSistema.Text = "Facturacion Clientes No Registrados";
+            lblSistema.Text = "Facturacion ";
             // 
             // txtCliente
             // 
             txtCliente.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCliente.Location = new Point(164, 126);
+            txtCliente.Location = new Point(164, 127);
             txtCliente.MaxLength = 20;
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(318, 28);
@@ -187,7 +190,7 @@
             dtpFecha.CustomFormat = "dd/mm/aaaa";
             dtpFecha.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(164, 276);
+            dtpFecha.Location = new Point(164, 277);
             dtpFecha.MaxDate = new DateTime(2025, 6, 3, 0, 0, 0, 0);
             dtpFecha.MinDate = new DateTime(2025, 6, 3, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
@@ -198,10 +201,11 @@
             // button1
             // 
             button1.BackColor = Color.Gainsboro;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.Location = new Point(327, 659);
             button1.Name = "button1";
-            button1.Size = new Size(155, 51);
+            button1.Size = new Size(155, 52);
             button1.TabIndex = 9;
             button1.Text = "Guardar";
             button1.UseVisualStyleBackColor = false;
@@ -223,7 +227,8 @@
             dgvFactura.AllowUserToDeleteRows = false;
             dgvFactura.AllowUserToResizeColumns = false;
             dgvFactura.AllowUserToResizeRows = false;
-            dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.SkyBlue;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -242,7 +247,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvFactura.DefaultCellStyle = dataGridViewCellStyle2;
             dgvFactura.EnableHeadersVisualStyles = false;
-            dgvFactura.Location = new Point(556, 94);
+            dgvFactura.Location = new Point(577, 94);
             dgvFactura.Name = "dgvFactura";
             dgvFactura.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -263,7 +268,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
+            label1.BackColor = Color.DimGray;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(29, 420);
             label1.Name = "label1";
@@ -299,7 +304,7 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(164, 535);
+            txtCantidad.Location = new Point(164, 534);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(318, 31);
             txtCantidad.TabIndex = 7;
@@ -307,11 +312,13 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnEliminar.BackColor = Color.Gainsboro;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.Location = new Point(1028, 659);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(289, 51);
+            btnEliminar.Size = new Size(289, 52);
             btnEliminar.TabIndex = 101;
             btnEliminar.Text = "Eliminar Factura";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -320,10 +327,11 @@
             // btnEdit
             // 
             btnEdit.BackColor = Color.Gainsboro;
+            btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEdit.Location = new Point(100, 659);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(192, 51);
+            btnEdit.Size = new Size(192, 52);
             btnEdit.TabIndex = 102;
             btnEdit.Text = "Buscar por Id";
             btnEdit.UseVisualStyleBackColor = false;
@@ -331,6 +339,7 @@
             // lblDescuento
             // 
             lblDescuento.AutoSize = true;
+            lblDescuento.BackColor = Color.DimGray;
             lblDescuento.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDescuento.Location = new Point(29, 322);
             lblDescuento.Name = "lblDescuento";
@@ -348,6 +357,7 @@
             // lblId
             // 
             lblId.AutoSize = true;
+            lblId.BackColor = Color.DimGray;
             lblId.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblId.Location = new Point(30, 83);
             lblId.Name = "lblId";
@@ -362,12 +372,24 @@
             textBox1.Size = new Size(318, 31);
             textBox1.TabIndex = 106;
             // 
+            // panel1
+            // 
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel1.BackColor = Color.DimGray;
+            panel1.Controls.Add(lblSistema);
+            panel1.Controls.Add(lblCantidad);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(539, 771);
+            panel1.TabIndex = 107;
+            // 
             // Facturacion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Silver;
-            ClientSize = new Size(1392, 792);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1360, 771);
             Controls.Add(textBox1);
             Controls.Add(lblId);
             Controls.Add(txtDescuento);
@@ -385,23 +407,25 @@
             Controls.Add(txtPrecio);
             Controls.Add(txtDescripcion);
             Controls.Add(txtCliente);
-            Controls.Add(lblSistema);
             Controls.Add(label9);
             Controls.Add(lblTipo);
-            Controls.Add(lblCantidad);
             Controls.Add(lblPrecio);
             Controls.Add(lblDescripcion);
             Controls.Add(lblRnc);
             Controls.Add(lblTelef);
             Controls.Add(lblCliente);
+            Controls.Add(panel1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
             Name = "Facturacion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Facturacion";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -435,5 +459,6 @@
         private TextBox txtDescuento;
         private Label lblId;
         private TextBox textBox1;
+        private Panel panel1;
     }
 }

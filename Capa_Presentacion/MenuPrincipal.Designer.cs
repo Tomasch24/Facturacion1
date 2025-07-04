@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             pnMenuV = new Panel();
-            button2 = new Button();
+            btnEmpleados = new Button();
             btnClientes = new Button();
             btnVentas = new Button();
             lblTitulo = new Label();
@@ -56,7 +56,7 @@
             // pnMenuV
             // 
             pnMenuV.BackColor = Color.DimGray;
-            pnMenuV.Controls.Add(button2);
+            pnMenuV.Controls.Add(btnEmpleados);
             pnMenuV.Controls.Add(btnClientes);
             pnMenuV.Controls.Add(btnVentas);
             pnMenuV.Controls.Add(lblTitulo);
@@ -67,22 +67,23 @@
             pnMenuV.Size = new Size(350, 799);
             pnMenuV.TabIndex = 0;
             // 
-            // button2
+            // btnEmpleados
             // 
-            button2.BackColor = Color.DimGray;
-            button2.FlatAppearance.BorderColor = Color.DimGray;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ControlText;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 372);
-            button2.Name = "button2";
-            button2.Size = new Size(350, 70);
-            button2.TabIndex = 4;
-            button2.Text = "Ventas";
-            button2.UseVisualStyleBackColor = false;
+            btnEmpleados.BackColor = Color.DimGray;
+            btnEmpleados.FlatAppearance.BorderColor = Color.DimGray;
+            btnEmpleados.FlatAppearance.BorderSize = 0;
+            btnEmpleados.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
+            btnEmpleados.FlatStyle = FlatStyle.Flat;
+            btnEmpleados.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEmpleados.ForeColor = SystemColors.ControlText;
+            btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
+            btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEmpleados.Location = new Point(0, 372);
+            btnEmpleados.Name = "btnEmpleados";
+            btnEmpleados.Size = new Size(350, 70);
+            btnEmpleados.TabIndex = 4;
+            btnEmpleados.Text = "Coming Soon";
+            btnEmpleados.UseVisualStyleBackColor = false;
             // 
             // btnClientes
             // 
@@ -93,6 +94,7 @@
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClientes.ForeColor = SystemColors.ControlText;
+            btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
             btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnClientes.Location = new Point(0, 269);
             btnClientes.Name = "btnClientes";
@@ -111,6 +113,7 @@
             btnVentas.FlatStyle = FlatStyle.Flat;
             btnVentas.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnVentas.ForeColor = SystemColors.ControlText;
+            btnVentas.Image = (Image)resources.GetObject("btnVentas.Image");
             btnVentas.ImageAlign = ContentAlignment.MiddleLeft;
             btnVentas.Location = new Point(0, 162);
             btnVentas.Name = "btnVentas";
@@ -273,7 +276,7 @@
         private PictureBox pictureBox7;
         private Label lblTitulo;
         private Button btnVentas;
-        private Button button2;
+        private Button btnEmpleados;
         private Button btnClientes;
     }
 }

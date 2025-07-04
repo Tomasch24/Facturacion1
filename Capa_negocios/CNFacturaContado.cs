@@ -9,11 +9,9 @@ namespace Capa_negocios
 {
     public class FacturaContado : Factura
     {
-        public FacturaContado(Factura factura)
-        {
+        public FacturaContado(CNCliente cliente) : base(cliente) { }
 
-        }
-        //TODO Se utiliza el "override" para sobrescribir el tipo
-        public override string Tipo => "Contado";
+        public override string ObtenerTipoFactura() => "Contado";
     }
+
 }

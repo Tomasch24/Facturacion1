@@ -1,5 +1,6 @@
 using capa_negocios;
 using Capa_negocios;
+using Capa_Presentacion;
 using ConexionDatos;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -14,14 +15,74 @@ namespace capa_presentacion
             InitializeComponent();
             GenerarFactura();
         }
-       
-       
-        
-        
+
+
+
+
         //TODO Evento del boton guardar para insertar los datos a la base de datos
         private void button1_Click(object sender, EventArgs e)
         {
-            Factura factura; //= new Factura(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtDescuento.Text);
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(txtCliente.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Nombre del cliente y descripción del producto son obligatorios.");
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || !int.TryParse(txtCantidad.Text, out int cantidad))
+            {
+                MessageBox.Show("Precio o cantidad inválidos.");
+                return;
+            }
+
+            if (!decimal.TryParse(txtDescuento.Text, out decimal descuento))
+            {
+                descuento = 0; // Se permite facturación sin descuento
+            }
+
+            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, descuento);
+
+            Factura factura = cbTipo.SelectedItem?.ToString() == "Contado"
+                ? new FacturaContado(cliente)
+                : new FacturaCredito(cliente);
+
+            factura.Descripcion = txtDescripcion.Text;
+            factura.Precio = precio;
+            factura.Cantidad = cantidad;
+            factura.Fecha = dtpFecha.Value;
+            factura.CalcularTotales();
+
+            //TODO captura de exito o error al infresar datos
+            int result = FacturaDal.IngresarDatos(factura);
+
+            if (result > 0)
+            {
+                MessageBox.Show("Exito al guardar datos de factura");
+
+                CNMemoriaTemporal.FacturasGeneradas.Add(factura);
+                dgvFactura.DataSource = null;
+                dgvFactura.DataSource = CNMemoriaTemporal.FacturasGeneradas.Select(f => new
+                {
+                    f.Cliente.Nombre,
+                    f.Descripcion,
+                    f.Cantidad,
+                    f.Precio,
+                    f.SubTotal,
+                    f.Descuento,
+                    f.Total,
+                    Tipo = f.ObtenerTipoFactura(),
+                    f.Fecha
+                }).ToList();
+
+            }
+            else
+            {
+                MessageBox.Show("Error 404: el codigo del cerebro del jeifferson de este codigo dejo de compilar");
+            }
+
+            LimpiarCampos();
+
+            /*Factura factura; //= new Factura(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtDescuento.Text);
 
 
             if (cbTipo.SelectedItem.ToString() == "Contado")
@@ -68,7 +129,7 @@ namespace capa_presentacion
                 MessageBox.Show("El precio ingresado no es válido. Por favor igrese un valor numerico.");
                 return;
             }
-            factura.Descuento = descuento;*/
+            factura.Descuento = descuento;
             
             decimal precio;
 
@@ -97,9 +158,9 @@ namespace capa_presentacion
             }
 
             GenerarFactura();
-            LimpiarCampos();
+            LimpiarCampos();*/
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //TODO se añaden contado y credito para el CB del tipo de factura
@@ -128,7 +189,7 @@ namespace capa_presentacion
                 conn.Close();
             }
         }
-      
+
         //TODO Metodo para Limpiar Campos
         private void LimpiarCampos()
         {
@@ -143,5 +204,7 @@ namespace capa_presentacion
         {
 
         }
+
+        
     }
 }
