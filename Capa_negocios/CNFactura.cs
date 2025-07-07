@@ -32,7 +32,7 @@ namespace capa_negocios
             Total = SubTotal - Descuento;
         }
 
-        public abstract string ObtenerTipoFactura(); // Método abstracto
+        public abstract string TipoFactura(); // Método abstracto
     }
 }
 

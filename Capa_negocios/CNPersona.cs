@@ -19,6 +19,6 @@ namespace Capa_negocios
             RNC = rnc;
         }
 
-        public abstract string ObtenerIdentificacion(); // Método abstracto
+      
     }
 }

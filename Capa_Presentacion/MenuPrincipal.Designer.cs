@@ -55,7 +55,7 @@
             // 
             // pnMenuV
             // 
-            pnMenuV.BackColor = Color.DimGray;
+            pnMenuV.BackColor = Color.White;
             pnMenuV.Controls.Add(btnEmpleados);
             pnMenuV.Controls.Add(btnClientes);
             pnMenuV.Controls.Add(btnVentas);
@@ -69,7 +69,7 @@
             // 
             // btnEmpleados
             // 
-            btnEmpleados.BackColor = Color.DimGray;
+            btnEmpleados.BackColor = Color.Transparent;
             btnEmpleados.FlatAppearance.BorderColor = Color.DimGray;
             btnEmpleados.FlatAppearance.BorderSize = 0;
             btnEmpleados.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
@@ -87,7 +87,7 @@
             // 
             // btnClientes
             // 
-            btnClientes.BackColor = Color.DimGray;
+            btnClientes.BackColor = Color.Transparent;
             btnClientes.FlatAppearance.BorderColor = Color.DimGray;
             btnClientes.FlatAppearance.BorderSize = 0;
             btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
@@ -106,7 +106,7 @@
             // 
             // btnVentas
             // 
-            btnVentas.BackColor = Color.DimGray;
+            btnVentas.BackColor = Color.Transparent;
             btnVentas.FlatAppearance.BorderColor = Color.DimGray;
             btnVentas.FlatAppearance.BorderSize = 0;
             btnVentas.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
@@ -191,7 +191,7 @@
             iconRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconRestaurar.Cursor = Cursors.Hand;
             iconRestaurar.Image = (Image)resources.GetObject("iconRestaurar.Image");
-            iconRestaurar.Location = new Point(911, 10);
+            iconRestaurar.Location = new Point(913, 10);
             iconRestaurar.Name = "iconRestaurar";
             iconRestaurar.Size = new Size(35, 35);
             iconRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -214,6 +214,7 @@
             // 
             // iconMaximizar
             // 
+            iconMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconMaximizar.Cursor = Cursors.Hand;
             iconMaximizar.Image = (Image)resources.GetObject("iconMaximizar.Image");
             iconMaximizar.Location = new Point(913, 10);
@@ -226,12 +227,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.BackColor = Color.WhiteSmoke;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(573, 117);
+            pictureBox1.Location = new Point(350, 50);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(600, 600);
+            pictureBox1.Size = new Size(999, 749);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -240,7 +241,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1349, 799);
             Controls.Add(pictureBox1);
             Controls.Add(pnBarraTitulo);

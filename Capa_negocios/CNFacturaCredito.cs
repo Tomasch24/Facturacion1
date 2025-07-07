@@ -11,6 +11,6 @@ namespace Capa_negocios
     {
         public FacturaCredito(CNCliente cliente) : base(cliente) { }
 
-        public override string ObtenerTipoFactura() => "Crédito";
+        public override string TipoFactura() => "Crédito";
     }
 }

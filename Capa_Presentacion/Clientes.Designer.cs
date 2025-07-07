@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            btnGuardarC = new Button();
+            txtCorreoC = new TextBox();
+            txtRncC = new TextBox();
+            txtTelefC = new TextBox();
+            txtNombreC = new TextBox();
             lblCorreoC = new Label();
             lblRncC = new Label();
             lblTelef2 = new Label();
             lblNombreC = new Label();
             label1 = new Label();
-            btnGuardarC = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,10 +46,10 @@
             // 
             panel1.BackColor = Color.DimGray;
             panel1.Controls.Add(btnGuardarC);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtCorreoC);
+            panel1.Controls.Add(txtRncC);
+            panel1.Controls.Add(txtTelefC);
+            panel1.Controls.Add(txtNombreC);
             panel1.Controls.Add(lblCorreoC);
             panel1.Controls.Add(lblRncC);
             panel1.Controls.Add(lblTelef2);
@@ -61,33 +61,46 @@
             panel1.Size = new Size(341, 675);
             panel1.TabIndex = 0;
             // 
-            // textBox4
+            // btnGuardarC
             // 
-            textBox4.Location = new Point(128, 332);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(184, 31);
-            textBox4.TabIndex = 8;
+            btnGuardarC.BackColor = Color.Gainsboro;
+            btnGuardarC.FlatStyle = FlatStyle.Flat;
+            btnGuardarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardarC.Location = new Point(85, 524);
+            btnGuardarC.Name = "btnGuardarC";
+            btnGuardarC.Size = new Size(155, 52);
+            btnGuardarC.TabIndex = 10;
+            btnGuardarC.Text = "Guardar";
+            btnGuardarC.UseVisualStyleBackColor = false;
+            btnGuardarC.Click += btnGuardarC_Click;
             // 
-            // textBox3
+            // txtCorreoC
             // 
-            textBox3.Location = new Point(128, 266);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(184, 31);
-            textBox3.TabIndex = 7;
+            txtCorreoC.Location = new Point(128, 332);
+            txtCorreoC.Name = "txtCorreoC";
+            txtCorreoC.Size = new Size(184, 31);
+            txtCorreoC.TabIndex = 8;
             // 
-            // textBox2
+            // txtRncC
             // 
-            textBox2.Location = new Point(128, 200);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(184, 31);
-            textBox2.TabIndex = 6;
+            txtRncC.Location = new Point(128, 266);
+            txtRncC.Name = "txtRncC";
+            txtRncC.Size = new Size(184, 31);
+            txtRncC.TabIndex = 7;
             // 
-            // textBox1
+            // txtTelefC
             // 
-            textBox1.Location = new Point(128, 126);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(184, 31);
-            textBox1.TabIndex = 5;
+            txtTelefC.Location = new Point(128, 200);
+            txtTelefC.Name = "txtTelefC";
+            txtTelefC.Size = new Size(184, 31);
+            txtTelefC.TabIndex = 6;
+            // 
+            // txtNombreC
+            // 
+            txtNombreC.Location = new Point(128, 126);
+            txtNombreC.Name = "txtNombreC";
+            txtNombreC.Size = new Size(184, 31);
+            txtNombreC.TabIndex = 5;
             // 
             // lblCorreoC
             // 
@@ -139,18 +152,6 @@
             label1.TabIndex = 0;
             label1.Text = "Registro Clientes";
             // 
-            // btnGuardarC
-            // 
-            btnGuardarC.BackColor = Color.Gainsboro;
-            btnGuardarC.FlatStyle = FlatStyle.Flat;
-            btnGuardarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardarC.Location = new Point(85, 524);
-            btnGuardarC.Name = "btnGuardarC";
-            btnGuardarC.Size = new Size(155, 52);
-            btnGuardarC.TabIndex = 10;
-            btnGuardarC.Text = "Guardar";
-            btnGuardarC.UseVisualStyleBackColor = false;
-            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -169,15 +170,15 @@
         #endregion
 
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox txtNombreC;
         private Label lblCorreoC;
         private Label lblRncC;
         private Label lblTelef2;
         private Label lblNombreC;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox txtTelefC;
+        private TextBox txtCorreoC;
+        private TextBox txtRncC;
         private Button btnGuardarC;
     }
 }

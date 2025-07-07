@@ -37,7 +37,7 @@ namespace Capa_negocios
                 cmd.Parameters.AddWithValue("@Precio", factura.Precio);
                 cmd.Parameters.AddWithValue("@Cantidad", factura.Cantidad);
                 cmd.Parameters.AddWithValue("@Descuento", factura.Descuento);
-                cmd.Parameters.AddWithValue("@Tipo", factura.ObtenerTipoFactura());
+                cmd.Parameters.AddWithValue("@Tipo", factura.TipoFactura());
 
                 retorna = cmd.ExecuteNonQuery();
 
@@ -45,23 +45,5 @@ namespace Capa_negocios
             }
             return retorna;
         }
-
-
-       /* public void GenerarFactura()
-        {
-            DataTable dt = new DataTable();
-
-            FacturaDatos data = new FacturaDatos();
-            using (SqlConnection conn = new SqlConnection(data.conexion))
-            {
-                SqlDataAdapter adapt;
-                conn.Open();
-                adapt = new SqlDataAdapter("SELECT * FROM Factura", conn);
-
-                adapt.Fill(dt);
-
-                conn.Close();
-            }*/
     }
-
 }

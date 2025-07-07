@@ -11,7 +11,7 @@ namespace Capa_negocios
     {
         public FacturaContado(CNCliente cliente) : base(cliente) { }
 
-        public override string ObtenerTipoFactura() => "Contado";
+        public override string TipoFactura() => "Contado";
     }
 
 }

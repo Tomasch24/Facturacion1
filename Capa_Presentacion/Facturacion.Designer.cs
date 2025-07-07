@@ -56,10 +56,8 @@
             txtCantidad = new NumericUpDown();
             btnEliminar = new Button();
             btnEdit = new Button();
-            lblDescuento = new Label();
-            txtDescuento = new TextBox();
             lblId = new Label();
-            textBox1 = new TextBox();
+            txtIdCliente = new TextBox();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
@@ -335,24 +333,7 @@
             btnEdit.TabIndex = 102;
             btnEdit.Text = "Buscar por Id";
             btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // lblDescuento
-            // 
-            lblDescuento.AutoSize = true;
-            lblDescuento.BackColor = Color.DimGray;
-            lblDescuento.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescuento.Location = new Point(29, 322);
-            lblDescuento.Name = "lblDescuento";
-            lblDescuento.Size = new Size(114, 27);
-            lblDescuento.TabIndex = 103;
-            lblDescuento.Text = "Descuento";
-            // 
-            // txtDescuento
-            // 
-            txtDescuento.Location = new Point(164, 318);
-            txtDescuento.Name = "txtDescuento";
-            txtDescuento.Size = new Size(318, 31);
-            txtDescuento.TabIndex = 104;
+            btnEdit.Click += btnEdit_Click;
             // 
             // lblId
             // 
@@ -365,12 +346,12 @@
             lblId.TabIndex = 105;
             lblId.Text = "Id";
             // 
-            // textBox1
+            // txtIdCliente
             // 
-            textBox1.Location = new Point(164, 79);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(318, 31);
-            textBox1.TabIndex = 106;
+            txtIdCliente.Location = new Point(164, 79);
+            txtIdCliente.Name = "txtIdCliente";
+            txtIdCliente.Size = new Size(318, 31);
+            txtIdCliente.TabIndex = 106;
             // 
             // panel1
             // 
@@ -390,10 +371,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1360, 771);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdCliente);
             Controls.Add(lblId);
-            Controls.Add(txtDescuento);
-            Controls.Add(lblDescuento);
             Controls.Add(btnEdit);
             Controls.Add(btnEliminar);
             Controls.Add(txtCantidad);
@@ -455,10 +434,8 @@
         private NumericUpDown txtCantidad;
         private Button btnEliminar;
         private Button btnEdit;
-        private Label lblDescuento;
-        private TextBox txtDescuento;
         private Label lblId;
-        private TextBox textBox1;
+        private TextBox txtIdCliente;
         private Panel panel1;
     }
 }

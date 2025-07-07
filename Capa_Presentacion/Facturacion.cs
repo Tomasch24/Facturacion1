@@ -23,7 +23,13 @@ namespace capa_presentacion
         private void button1_Click(object sender, EventArgs e)
         {
             // Validaciones
-            if (string.IsNullOrWhiteSpace(txtCliente.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtCliente.Text))
+            {
+                MessageBox.Show("Nombre del cliente y descripción del producto son obligatorios.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show("Nombre del cliente y descripción del producto son obligatorios.");
                 return;
@@ -35,12 +41,12 @@ namespace capa_presentacion
                 return;
             }
 
-            if (!decimal.TryParse(txtDescuento.Text, out decimal descuento))
+            /*if (!decimal.TryParse(txtDescuento.Text, out decimal descuento))
             {
                 descuento = 0; // Se permite facturación sin descuento
-            }
+            }*/
 
-            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, descuento);
+            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, 5);
 
             Factura factura = cbTipo.SelectedItem?.ToString() == "Contado"
                 ? new FacturaContado(cliente)
@@ -70,7 +76,7 @@ namespace capa_presentacion
                     f.SubTotal,
                     f.Descuento,
                     f.Total,
-                    Tipo = f.ObtenerTipoFactura(),
+                    Tipo = f.TipoFactura(),
                     f.Fecha
                 }).ToList();
 
@@ -205,6 +211,28 @@ namespace capa_presentacion
 
         }
 
-        
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtIdCliente.Text, out int idCliente))
+            {
+                MessageBox.Show("Por favor ingrese un Id válido.");
+                return;
+            }
+
+            CNCliente cliente = CNClienteDal.BuscarPorId(idCliente);
+
+            if (cliente != null)
+            {
+                txtCliente.Text = cliente.Nombre;
+                txtTelef1.Text = cliente.Telefono;
+                txtRnc.Text = cliente.RNC;
+                txtDescuento.Text = cliente.Descuento.ToString("F2");
+                txtCliente.Tag = cliente; // Guarda el cliente para usarlo al facturar
+            }
+            else
+            {
+                MessageBox.Show("Cliente no encontrado.");
+            }
+        }
     }
 }
