@@ -39,17 +39,7 @@ namespace Capa_negocios
                 conn.Close();
             }
             return retorna;
-            /*using var conn = new SqlConnection(conexion);
-            using var cmd = new SqlCommand("INSERT INTO Cliente (Nombre, Telefono, RNC, Correo, Descuento) VALUES (@Nombre, @Telefono, @RNC, @Correo, @Descuento)", conn);
-
-            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-            cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-            cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
-            cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
-            cmd.Parameters.AddWithValue("@Descuento", cliente.Descuento);
-
-            conn.Open();
-            return cmd.ExecuteNonQuery();*/
+          
         }
         public static CNCliente BuscarPorId(int idCliente)
         {
@@ -61,7 +51,7 @@ namespace Capa_negocios
             {
                 conn.Open();//abre la conexion a la base de datos
 
-                string query = "SELECT * From Persona Where IdCliente = @IdCliente";
+                string query = "SELECT * From Cliente Where IdCliente = @IdCliente";
 
                 //Comando SQL
 
@@ -92,6 +82,70 @@ namespace Capa_negocios
 
                 return null; //Si no encuentra nada, no devuelve nada
             }
+        }
+        public List<CNCliente> MostrarClientes()
+        {
+            List<CNCliente> lista = new();
+
+            FacturaDatos data = new FacturaDatos();
+
+            SqlConnection conn = new SqlConnection(data.conexion);
+            
+            string query = "SELECT * FROM Cliente";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                CNCliente cliente = new CNCliente(
+                    reader["Nombre"].ToString(),
+                    reader["Telefono"].ToString(),
+                    reader["RNC"].ToString()
+                )
+                {
+                    IdCliente = Convert.ToInt32(reader["IdCliente"]),
+                    Correo = reader["Correo"].ToString()
+                };
+
+                lista.Add(cliente);
+            }
+
+            return lista;
+        }
+        public int EditarCliente(CNCliente cliente)
+        {
+            int retorna = 0;
+            FacturaDatos data = new FacturaDatos();
+            //TODO Se abre la conexion
+            using (SqlConnection conn = new SqlConnection(data.conexion))
+            {
+                //TODO se abre la base de datos
+                conn.Open();
+
+                // TODO comando sql para que se Actualicen los datos del cliente en la base de datos
+                string query = @"UPDATE Cliente
+                     SET Nombre = @Nombre,
+                         Telefono = @Telefono,
+                         RNC = @RNC,
+                         Correo = @Correo
+                     WHERE IdCliente = @IdCliente";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+                cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
+                cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+
+
+                retorna = cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            return retorna;
+           
         }
     }
 }

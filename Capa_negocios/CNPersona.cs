@@ -18,7 +18,5 @@ namespace Capa_negocios
             Telefono = telefono;
             RNC = rnc;
         }
-
-      
     }
 }

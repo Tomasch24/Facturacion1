@@ -14,10 +14,10 @@ namespace Capa_negocios
 
         public string Correo { get; set; }
 
-        public CNCliente(string nombre, string telefono, string rnc, decimal descuento = 5)
+        public CNCliente(string nombre, string telefono, string rnc)
             : base(nombre, telefono, rnc)
         {
-            Descuento = descuento;
+            Descuento = 5;
         }
     }
 }

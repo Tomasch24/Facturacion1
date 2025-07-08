@@ -54,11 +54,12 @@
             txtRnc = new MaskedTextBox();
             txtPrecio = new TextBox();
             txtCantidad = new NumericUpDown();
-            btnEliminar = new Button();
+            btnAgregar = new Button();
             btnEdit = new Button();
             lblId = new Label();
             txtIdCliente = new TextBox();
             panel1 = new Panel();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
@@ -172,7 +173,8 @@
             txtCliente.MaxLength = 20;
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(318, 28);
-            txtCliente.TabIndex = 1;
+            txtCliente.TabIndex = 2;
+            txtCliente.KeyPress += txtCliente_KeyPress;
             // 
             // txtDescripcion
             // 
@@ -181,7 +183,7 @@
             txtDescripcion.MaxLength = 50;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(318, 28);
-            txtDescripcion.TabIndex = 5;
+            txtDescripcion.TabIndex = 6;
             // 
             // dtpFecha
             // 
@@ -193,7 +195,7 @@
             dtpFecha.MinDate = new DateTime(2025, 6, 3, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(318, 28);
-            dtpFecha.TabIndex = 4;
+            dtpFecha.TabIndex = 5;
             dtpFecha.Value = new DateTime(2025, 6, 3, 0, 0, 0, 0);
             // 
             // button1
@@ -217,7 +219,7 @@
             cbTipo.Location = new Point(164, 584);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(318, 28);
-            cbTipo.TabIndex = 8;
+            cbTipo.TabIndex = 9;
             // 
             // dgvFactura
             // 
@@ -281,7 +283,7 @@
             txtTelef1.Mask = "+1 (999) 000-0000";
             txtTelef1.Name = "txtTelef1";
             txtTelef1.Size = new Size(318, 30);
-            txtTelef1.TabIndex = 2;
+            txtTelef1.TabIndex = 3;
             // 
             // txtRnc
             // 
@@ -290,7 +292,7 @@
             txtRnc.Mask = "000-0000000-0";
             txtRnc.Name = "txtRnc";
             txtRnc.Size = new Size(318, 28);
-            txtRnc.TabIndex = 3;
+            txtRnc.TabIndex = 4;
             // 
             // txtPrecio
             // 
@@ -298,29 +300,29 @@
             txtPrecio.Location = new Point(164, 493);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(318, 28);
-            txtPrecio.TabIndex = 6;
+            txtPrecio.TabIndex = 7;
             // 
             // txtCantidad
             // 
             txtCantidad.Location = new Point(164, 534);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(318, 31);
-            txtCantidad.TabIndex = 7;
+            txtCantidad.TabIndex = 8;
             txtCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // btnEliminar
+            // btnAgregar
             // 
-            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnEliminar.BackColor = Color.Gainsboro;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(1028, 659);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(289, 52);
-            btnEliminar.TabIndex = 101;
-            btnEliminar.Text = "Eliminar Factura";
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += button2_Click;
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAgregar.BackColor = Color.Gainsboro;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.Location = new Point(1028, 659);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(289, 52);
+            btnAgregar.TabIndex = 101;
+            btnAgregar.Text = "Agregar Cliente";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += button2_Click;
             // 
             // btnEdit
             // 
@@ -351,7 +353,7 @@
             txtIdCliente.Location = new Point(164, 79);
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.Size = new Size(318, 31);
-            txtIdCliente.TabIndex = 106;
+            txtIdCliente.TabIndex = 1;
             // 
             // panel1
             // 
@@ -365,16 +367,31 @@
             panel1.Size = new Size(539, 771);
             panel1.TabIndex = 107;
             // 
+            // btnVolver
+            // 
+            btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnVolver.BackColor = Color.Gainsboro;
+            btnVolver.FlatStyle = FlatStyle.Flat;
+            btnVolver.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolver.Location = new Point(577, 659);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(289, 52);
+            btnVolver.TabIndex = 108;
+            btnVolver.Text = "Volver al Menu";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // Facturacion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1360, 771);
+            Controls.Add(btnVolver);
             Controls.Add(txtIdCliente);
             Controls.Add(lblId);
             Controls.Add(btnEdit);
-            Controls.Add(btnEliminar);
+            Controls.Add(btnAgregar);
             Controls.Add(txtCantidad);
             Controls.Add(txtRnc);
             Controls.Add(txtTelef1);
@@ -396,6 +413,7 @@
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Facturacion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Facturacion";
@@ -432,10 +450,11 @@
         private MaskedTextBox txtRnc;
         private TextBox txtPrecio;
         private NumericUpDown txtCantidad;
-        private Button btnEliminar;
+        private Button btnAgregar;
         private Button btnEdit;
         private Label lblId;
         private TextBox txtIdCliente;
         private Panel panel1;
+        private Button btnVolver;
     }
 }

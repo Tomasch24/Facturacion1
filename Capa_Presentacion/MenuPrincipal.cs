@@ -18,7 +18,7 @@ namespace Capa_Presentacion
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void pbMenu_Click(object sender, EventArgs e)
@@ -72,6 +72,7 @@ namespace Capa_Presentacion
         {
             Facturacion Fac = new Facturacion();
             Fac.Show();
+            
 
         }
 
@@ -79,6 +80,18 @@ namespace Capa_Presentacion
         {
             Clientes Clients = new Clientes();
             Clients.Show();
+            
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnMenuV_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

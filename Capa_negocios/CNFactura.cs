@@ -18,21 +18,31 @@ namespace capa_negocios
         public DateTime Fecha { get; set; } // = DateTime.Now;
 
         public decimal SubTotal => Precio * Cantidad;
-        public decimal Descuento { get; protected set; }
-        public decimal Total { get; protected set; }
+        public decimal Descuento { get; private set; }
+        public decimal Total { get; private set; }
 
-        protected Factura(CNCliente cliente)
+        public Factura(CNCliente cliente)
         {
             Cliente = cliente;
         }
+        public void AplicarDescuentoSiCorresponde()
+        {
+            if (Cliente?.IdCliente > 0)
+                Descuento = SubTotal * 0.05m;
+            else
+                Descuento = 0;
 
+            Total = SubTotal - Descuento;
+        }
         public virtual void CalcularTotales()
         {
-            Descuento = SubTotal * (Cliente.Descuento / 100);
+           
             Total = SubTotal - Descuento;
         }
 
         public abstract string TipoFactura(); // Método abstracto
+
+       
     }
 }
 

@@ -14,39 +14,41 @@ namespace capa_presentacion
         {
             InitializeComponent();
             GenerarFactura();
+            txtCliente.MaxLength = 50;
+            txtDescripcion.MaxLength = 80;
+            dtpFecha.Enabled = false;
         }
-
-
-
 
         //TODO Evento del boton guardar para insertar los datos a la base de datos
         private void button1_Click(object sender, EventArgs e)
         {
+
             // Validaciones
             if (string.IsNullOrWhiteSpace(txtCliente.Text))
             {
-                MessageBox.Show("Nombre del cliente y descripción del producto son obligatorios.");
+                MessageBox.Show("Error en el campo Cliente.", "Ingrese un Nombre valido", MessageBoxButtons.OK);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
-                MessageBox.Show("Nombre del cliente y descripción del producto son obligatorios.");
+                MessageBox.Show("Error en el campo Descripcion.", "Ingrese una Descripcion de producto valida", MessageBoxButtons.OK);
                 return;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || !int.TryParse(txtCantidad.Text, out int cantidad))
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) )
             {
-                MessageBox.Show("Precio o cantidad inválidos.");
+                MessageBox.Show("Error en el campo Precio.", "Ingrese un Precio valido", MessageBoxButtons.OK);
                 return;
             }
 
-            /*if (!decimal.TryParse(txtDescuento.Text, out decimal descuento))
+            if (!int.TryParse(txtCantidad.Text, out int cantidad))
             {
-                descuento = 0; // Se permite facturación sin descuento
-            }*/
+                MessageBox.Show("Error en el campo Cantidad.", "Ingrese una Cantidad valida", MessageBoxButtons.OK);
+                return;
+            }
 
-            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, 5);
+            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
 
             Factura factura = cbTipo.SelectedItem?.ToString() == "Contado"
                 ? new FacturaContado(cliente)
@@ -55,6 +57,7 @@ namespace capa_presentacion
             factura.Descripcion = txtDescripcion.Text;
             factura.Precio = precio;
             factura.Cantidad = cantidad;
+            factura.AplicarDescuentoSiCorresponde();
             factura.Fecha = dtpFecha.Value;
             factura.CalcularTotales();
 
@@ -69,6 +72,8 @@ namespace capa_presentacion
                 dgvFactura.DataSource = null;
                 dgvFactura.DataSource = CNMemoriaTemporal.FacturasGeneradas.Select(f => new
                 {
+
+                    IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "Cliente no registrado",
                     f.Cliente.Nombre,
                     f.Descripcion,
                     f.Cantidad,
@@ -88,92 +93,19 @@ namespace capa_presentacion
 
             LimpiarCampos();
 
-            /*Factura factura; //= new Factura(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtDescuento.Text);
 
-
-            if (cbTipo.SelectedItem.ToString() == "Contado")
-                factura = new FacturaContado(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtDescuento.Text);
-            else
-                factura = new FacturaCredito(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtDescuento.Text);
-
-            //TODO Capturas de error para no dejar los campos Cliente y Referencia de Producto en blanco
-            try
-            {
-                factura.Persona.Nombre = txtCliente.Text;
-
-                if (string.IsNullOrWhiteSpace(factura.Persona.Nombre))
-
-                    throw new Exception("Favor ingrese Nombre del Cliente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en el campo Cliente. " + ex.Message);
-                return;
-            }
-
-            try
-            {
-                factura.Descripcion = txtDescripcion.Text;
-
-                if (string.IsNullOrWhiteSpace(factura.Descripcion))
-                {
-                    throw new Exception("Favor Coloque una Referencia del Producto.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en el campo Referencia de Producto.  " + ex.Message);
-                return;
-            }
-
-            //TODO Captura de error para solo ingresar numeros en el campo precio
-
-           /* decimal descuento;
-
-            if (!decimal.TryParse(txtDescuento.Text, out descuento))
-            {
-                MessageBox.Show("El precio ingresado no es válido. Por favor igrese un valor numerico.");
-                return;
-            }
-            factura.Descuento = descuento;
-            
-            decimal precio;
-
-            if (!decimal.TryParse(txtPrecio.Text, out precio))
-            {
-                MessageBox.Show("El precio ingresado no es válido. Por favor igrese un valor numerico.");
-                return;
-            }
-            factura.Precio = precio;
-
-            factura.Telefono = txtTelef1.Text;
-            factura.Cliente.RNC = txtRnc.Text;
-            factura.Fecha = dtpFecha.Value;
-            factura.Cantidad = int.Parse(txtCantidad.Text);
-
-            //TODO captura de exito o error al infresar datos
-            int result = FacturaDal.IngresarDatos(factura);
-
-            if (result > 0)
-            {
-                MessageBox.Show("Exito al guardar datos de factura");
-            }
-            else
-            {
-                MessageBox.Show("Error 404: el codigo del cerebro del jeifferson de este codigo dejo de compilar");
-            }
-
-            GenerarFactura();
-            LimpiarCampos();*/
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             //TODO se añaden contado y credito para el CB del tipo de factura
             cbTipo.Items.Add("Contado");
             cbTipo.Items.Add("Crédito");
             cbTipo.SelectedIndex = 0;
         }
+
+
 
         //TODO Metodo Generar Factura (Aqui esta)
         private void GenerarFactura()
@@ -204,10 +136,14 @@ namespace capa_presentacion
             txtRnc.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Clientes C = new Clientes();
+
+            C.Show();
 
         }
 
@@ -226,12 +162,26 @@ namespace capa_presentacion
                 txtCliente.Text = cliente.Nombre;
                 txtTelef1.Text = cliente.Telefono;
                 txtRnc.Text = cliente.RNC;
-                txtDescuento.Text = cliente.Descuento.ToString("F2");
                 txtCliente.Tag = cliente; // Guarda el cliente para usarlo al facturar
             }
             else
             {
                 MessageBox.Show("Cliente no encontrado.");
+            }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            
+            this.Dispose();
+        }
+
+        private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo letras, espacios y teclas de control (como backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true; // Bloquear la tecla
             }
         }
     }
