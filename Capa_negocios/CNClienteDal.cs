@@ -116,36 +116,28 @@ namespace Capa_negocios
         }
         public int EditarCliente(CNCliente cliente)
         {
-            int retorna = 0;
             FacturaDatos data = new FacturaDatos();
-            //TODO Se abre la conexion
+            
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
-                //TODO se abre la base de datos
+                int retorna = 0;
                 conn.Open();
+                string query = "UPDATE Cliente SET Nombre = @Nombre, RNC = @Rnc, Telefono = @Telefono, Correo = @Correo  WHERE IdCliente = @IdCliente";
 
-                // TODO comando sql para que se Actualicen los datos del cliente en la base de datos
-                string query = @"UPDATE Cliente
-                     SET Nombre = @Nombre,
-                         Telefono = @Telefono,
-                         RNC = @RNC,
-                         Correo = @Correo
-                     WHERE IdCliente = @IdCliente";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-                cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
-                cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
-
-
-                retorna = cmd.ExecuteNonQuery();
-
-                conn.Close();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdCliente", cliente.IdCliente);
+                    cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                    cmd.Parameters.AddWithValue("@Rnc", cliente.RNC);
+                    cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+                    cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+                    
+                    cmd.ExecuteNonQuery();
+                }
+                return retorna;
             }
-            return retorna;
-           
         }
+        
     }
+    
 }
