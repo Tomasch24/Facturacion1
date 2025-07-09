@@ -12,5 +12,11 @@ namespace Capa_negocios
         public FacturaCredito(CNCliente cliente) : base(cliente) { }
 
         public override string TipoFactura() => "Crédito";
+
+        public override void CalcularTotales()
+        {
+          
+            Total = (SubTotal - Descuento) + (SubTotal * 0.08m);
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa_negocios
 {
+    //TODO Clase abstracta base CNPersona
     public abstract class CNPersona
     {
         public string Nombre { get; set; }

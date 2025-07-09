@@ -11,15 +11,17 @@ namespace capa_negocios
 {
     public abstract class Factura
     {
+        public int IdFactura { get; set; }
         public CNCliente Cliente { get; set; }
+        public string NombreFactura { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
-        public DateTime Fecha { get; set; } // = DateTime.Now;
+        public DateTime Fecha { get; set; } 
 
         public decimal SubTotal => Precio * Cantidad;
-        public decimal Descuento { get; private set; }
-        public decimal Total { get; private set; }
+        public decimal Descuento { get;  set; }
+        public decimal Total { get; set; }
 
         public Factura(CNCliente cliente)
         {
@@ -32,15 +34,18 @@ namespace capa_negocios
             else
                 Descuento = 0;
 
-            Total = SubTotal - Descuento;
+           // Total = SubTotal - Descuento;
         }
+
+        //TODO Metodo Virtual para calcular totales
         public virtual void CalcularTotales()
         {
            
             Total = SubTotal - Descuento;
         }
 
-        public abstract string TipoFactura(); // Método abstracto
+        //TODO Método abstracto para identificar el tipo de factura (Contado o Credito)
+        public abstract string TipoFactura(); 
 
        
     }

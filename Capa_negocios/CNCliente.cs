@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capa_negocios
 {
+    //TODO Clase cliente heredando de clase abstracta base CNPersona
     public class CNCliente : CNPersona
     {
         public int IdCliente { get; set; }
@@ -14,6 +15,7 @@ namespace Capa_negocios
 
         public string Correo { get; set; }
 
+        //TODO Constructor CNCliente
         public CNCliente(string nombre, string telefono, string rnc)
             : base(nombre, telefono, rnc)
         {

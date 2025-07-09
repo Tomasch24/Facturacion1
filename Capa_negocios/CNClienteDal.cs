@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Capa_negocios
 {
+    //TODO Clase CNClienteDal de gestionar los metodos relacionado a los datos de los clientes en la base de datos
     public class CNClienteDal 
     {
-        
-
+        //TODO metodo para insertar clientes a la base de datos
         public int InsertarCliente(CNCliente cliente)
         {
             int retorna = 0;
             FacturaDatos data = new FacturaDatos();
-            //TODO Se abre la conexion
+            //Se abre la conexion
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
-                //TODO se abre la base de datos
+                // se abre la base de datos
                 conn.Open();
 
-                // TODO comando sql para que se guarden los datos que inserte el usuario en la base de datos
+                // TODO comando sql para que se guarden los datos del cliente en la base de datos
                 string query = "INSERT INTO Cliente (Nombre, Telefono, RNC, Correo) VALUES (@Nombre, @Telefono, @RNC, @Correo)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -32,31 +32,32 @@ namespace Capa_negocios
                 cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
                 cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
                 cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
-               
 
                 retorna = cmd.ExecuteNonQuery();
 
                 conn.Close();
             }
             return retorna;
-          
         }
+
+        //TODO metodo para buscar los clientes por id   
         public static CNCliente BuscarPorId(int idCliente)
         {
-            
             FacturaDatos data = new FacturaDatos();
 
             //Se abre la conexion
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
-                conn.Open();//abre la conexion a la base de datos
+                //abre la conexion a la base de datos
+                conn.Open();
 
+                //TODO Comando SQL para buscar los clientes por id
                 string query = "SELECT * From Cliente Where IdCliente = @IdCliente";
 
-                //Comando SQL
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@IdCliente", idCliente); // Agrega el parametro de busqueda
+                // Parametro de busqueda
+                cmd.Parameters.AddWithValue("@IdCliente", idCliente); 
 
                 //Ejecuta la consulta
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -83,6 +84,8 @@ namespace Capa_negocios
                 return null; //Si no encuentra nada, no devuelve nada
             }
         }
+
+        //TODO Lista para mostrar clientes en el datagridview
         public List<CNCliente> MostrarClientes()
         {
             List<CNCliente> lista = new();
@@ -114,30 +117,53 @@ namespace Capa_negocios
 
             return lista;
         }
+
+        //TODO Metodo para editar clientes en la base de datos
         public int EditarCliente(CNCliente cliente)
         {
             FacturaDatos data = new FacturaDatos();
-            
+            int resultado = 0;
+
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
-                int retorna = 0;
                 conn.Open();
-                string query = "UPDATE Cliente SET Nombre = @Nombre, RNC = @Rnc, Telefono = @Telefono, Correo = @Correo  WHERE IdCliente = @IdCliente";
+                //TODO Comando SQL para editar los clientes en la base de datos
+                string query = @"UPDATE Cliente  SET Nombre = @Nombre, RNC = @RNC, Telefono = @Telefono, Correo = @Correo   WHERE IdCliente = @IdCliente";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@IdCliente", cliente.IdCliente);
                     cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-                    cmd.Parameters.AddWithValue("@Rnc", cliente.RNC);
+                    cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
                     cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
                     cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
-                    
-                    cmd.ExecuteNonQuery();
+
+                    resultado = cmd.ExecuteNonQuery(); 
                 }
-                return retorna;
             }
+            return resultado;
         }
-        
+
+        //TODO metdo para eliminar clientes
+        public int EliminarCliente(int idCliente)
+        {
+            int retorna = 0;
+            FacturaDatos data = new FacturaDatos();
+
+            using (SqlConnection conn = new SqlConnection(data.conexion))
+            {
+                conn.Open();
+
+                //TODO comando SQL para eliminar clientes en la base de datos
+                string query = "DELETE FROM Cliente WHERE IdCliente = @IdCliente";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                    retorna = cmd.ExecuteNonQuery();
+                }
+            }
+            return retorna;
+        }
     }
-    
 }

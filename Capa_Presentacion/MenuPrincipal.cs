@@ -23,13 +23,13 @@ namespace Capa_Presentacion
 
         private void pbMenu_Click(object sender, EventArgs e)
         {
-            if (pnMenuV.Width == 350)
+            if (pnMenuV.Width == 86)
             {
-                pnMenuV.Width = 86;
+                pnMenuV.Width = 350;
             }
             else
             {
-                pnMenuV.Width = 350;
+                pnMenuV.Width = 86;
             }
         }
 
@@ -72,7 +72,7 @@ namespace Capa_Presentacion
         {
             Facturacion Fac = new Facturacion();
             Fac.Show();
-            
+
 
         }
 
@@ -80,18 +80,15 @@ namespace Capa_Presentacion
         {
             Clientes Clients = new Clientes();
             Clients.Show();
-            
+
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+      
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pnMenuV_Paint(object sender, PaintEventArgs e)
-        {
-
+            MessageBox.Show("El autor de esta practica ya no le quedaban neuronas", "Proximamente Formulario Empleados, con roles y login" , MessageBoxButtons.OK , MessageBoxIcon.Information);
         }
     }
 }

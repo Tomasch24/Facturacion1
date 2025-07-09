@@ -1,5 +1,6 @@
 ﻿using capa_negocios;
 using Capa_negocios;
+using capa_presentacion;
 using ConexionDatos;
 using Microsoft.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -39,65 +40,74 @@ namespace Capa_Presentacion
                 MessageBox.Show("Error en el campo RNC.", "Ingrese un RNC valido", MessageBoxButtons.OK);
                 return;
             }
-            if (idClienteEditando == null)
+            try
             {
-                // Registrar nuevo cliente
-                CNCliente cliente = new CNCliente(
-                    txtNombreC.Text.Trim(),
-                    txtTelefC.Text.Trim(),
-                    txtRncC.Text.Trim()
-                )
-                {
-                    Correo = txtCorreoC.Text.Trim()
-                };
-                
-                CNClienteDal datos = new CNClienteDal();
-                int resultado = datos.InsertarCliente(cliente);
+                string correo = txtCorreoC.Text.Trim();
 
-                if (resultado > 0)
-                {
-                    MessageBox.Show("Cliente registrado correctamente.");
-                    LimpiarCampos();
-                }
-                else
-                {
-                    MessageBox.Show("Ocurrió un error al registrar el cliente.");
-                }
-                LimpiarCampos();
+                if (string.IsNullOrWhiteSpace(correo))
+                    throw new Exception("El campo de correo está vacío.");
+
+                if (!correo.Contains("@") || !correo.Contains("."))
+                    throw new Exception("Formato de correo inválido." + "\nFavor usar una direccion de correo valida: username@ejemplo.com");
+
+                // También podrías aplicar aquí una función de regex si quieres más precisión
             }
-            else
+            catch (Exception ex)
             {
-                // Editar cliente existente
-                CNCliente cliente = new CNCliente(
-                    txtNombreC.Text.Trim(),
-                    txtTelefC.Text.Trim(),
-                    txtRncC.Text.Trim()
-                )
-                {
-                    IdCliente = idClienteEditando.Value,
-                    Correo = txtCorreoC.Text.Trim()
-                };
+                MessageBox.Show(ex.Message, "Error en el correo electrónico", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                CNClienteDal datos = new CNClienteDal();
-                int resultado = datos.InsertarCliente(cliente);
+                return;
+            }
+            CNCliente cliente = new CNCliente(txtNombreC.Text.Trim(), txtTelefC.Text.Trim(), txtRncC.Text.Trim()) { Correo = txtCorreoC.Text.Trim() };
+
+            CNClienteDal datos = new CNClienteDal();
+            int resultado;
+
+            if (idClienteEditando != null)
+            {
+                // Modo edición
+                cliente.IdCliente = idClienteEditando.Value;
+                resultado = datos.EditarCliente(cliente);
 
                 if (resultado > 0)
                 {
                     MessageBox.Show("Cliente actualizado correctamente.");
-                    idClienteEditando = null;
-                    btnGuardarC.Text = "Registrar";
-                    btnGuardarC.BackColor = Color.MediumSeaGreen;
-                    LimpiarCampos();
                 }
                 else
                 {
                     MessageBox.Show("Error al actualizar el cliente.");
                 }
-                LimpiarCampos();
+
+                // Restaurar modo normal del botón
+                idClienteEditando = null;
+                btnGuardarC.Text = "Registrar";
+                btnGuardarC.BackColor = Color.Gainsboro;
+
+            }
+            else
+            {
+                // Modo creación
+                resultado = datos.InsertarCliente(cliente);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Cliente registrado correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error al registrar el cliente.");
+                }
             }
 
-           
+            // Refrescar, limpiar y reiniciar
+            Mclientes();      // Recargar tabla
+            LimpiarCampos();  // Limpiar campos
         }
+        // LimpiarCampos();
+
+
+
+
         private void Mclientes()
         {
             CNClienteDal datos = new CNClienteDal();
@@ -123,134 +133,40 @@ namespace Capa_Presentacion
         private int? idClienteEditando = null;
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
             if (dgvClientes.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Por favor, seleccione un Cliente para editar.");
+                MessageBox.Show("Seleccione un cliente para editar.");
                 return;
             }
 
-            DialogResult confirm = MessageBox.Show(
-                "¿Estás seguro de que deseas editar los datos del Cliente seleccionado?",
+            DialogResult dialogResult = MessageBox.Show(
+                "¿Estás seguro de que deseas editar los datos del cliente seleccionado?",
                 "Confirmar Edición",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (confirm == DialogResult.No)
+            if (dialogResult == DialogResult.No)
             {
-                return; // Si el usuario cancela, no hace nada, el return hace que se salga del metodo
-                //si el usuario presiona No, no se ejecuta el resto del código, si presiona Si, se continua con el resto del código
+                return;
             }
 
-            DataGridViewRow fila = dgvClientes.SelectedRows[0]; //esto obtiene la fila seleccionada en el DataGridView
+            DataGridViewRow fila = dgvClientes.SelectedRows[0];
+            idClienteEditando = Convert.ToInt32(fila.Cells["IdCliente"].Value); // Guardar ID del cliente para saber que se está editando
 
-            idClienteEditando = Convert.ToInt32(fila.Cells["IdCliente"].Value);
-
+            // Llenar los campos del formulario con los datos seleccionados
             txtNombreC.Text = fila.Cells["Nombre"].Value.ToString();
             txtTelefC.Text = fila.Cells["Telefono"].Value.ToString();
             txtRncC.Text = fila.Cells["RNC"].Value.ToString();
-  
             txtCorreoC.Text = fila.Cells["Correo"].Value?.ToString();
 
+            // Cambiar el texto y estilo del botón Guardar para indicar "modo edición"
+            btnGuardarC.Text = "Guardar Cambios";
+            btnGuardarC.BackColor = Color.SkyBlue;
+            btnGuardarC.ForeColor = Color.Black;
 
 
 
-            /*
-           btnEditar.Width = 253;
-            btnEditar.Text = "Guardar cambios"; // Cambia el texto del botón
-            btnEditar.BackColor = Color.SkyBlue;
-        
-            if (dgvClientes.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Por favor, selecciona un cliente para editar.");
-                return;
-            }
-
-            DialogResult confirm = MessageBox.Show(
-                "¿Estás seguro de que deseas editar este cliente?",
-                "Confirmar Edición",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.No)
-                return;
-
-            // Obtener la fila seleccionada
-            DataGridViewRow fila = dgvClientes.SelectedRows[0];
-
-            // Extraer el ID del cliente
-            int idCliente = Convert.ToInt32(fila.Cells["IdCliente"].Value);
-
-            // Buscar el cliente por ID desde base de datos
-            CNClienteDal C = new CNClienteDal();
-            CNCliente cliente = C.BuscarClientePorId(idCliente);
-
-            if (cliente == null)
-            {
-                MessageBox.Show("El cliente no fue encontrado en la base de datos.");
-                return;
-            }
-
-            // Abrir el mismo formulario de clientes en modo edición
-            Clientes frmEditar = new Clientes(cliente);
-
-            if (frmEditar.ShowDialog() == DialogResult.OK)
-            {
-                MessageBox.Show("Cliente actualizado correctamente.");
-                CargarClientes(); // Refrescar DataGridView
-            }
-        
-         /* try
-         {
-             if (string.IsNullOrWhiteSpace(txtNombreC.Text))
-             {
-                 MessageBox.Show("Error en el campo Nombre.", "Ingrese un Nombre valido", MessageBoxButtons.OK);
-                 return;
-             }
-
-             throw new Exception("Ha excedido el maximo de 50 caracteres");
-         }
-         catch (Exception ex)
-         {
-             MessageBox.Show("Error en el campo Nombre." + ex.Message);
-         }
-
-         if (string.IsNullOrWhiteSpace(txtTelefC.Text))
-         {
-             MessageBox.Show("Error en el campo Telefono.", "Ingrese un Telefono valido", MessageBoxButtons.OK);
-             return;
-         }
-         if (string.IsNullOrWhiteSpace(txtRncC.Text))
-         {
-             MessageBox.Show("Error en el campo RNC.", "Ingrese un RNC valido", MessageBoxButtons.OK);
-             return;
-         }
-         // Crear nuevo cliente con los datos del formulario
-         CNCliente cliente = new CNCliente(
-             txtNombreC.Text.Trim(),
-             txtTelefC.Text.Trim(),
-             txtRncC.Text.Trim()
-
-         )
-         {
-             Correo = txtCorreoC.Text.Trim()
-         };
-
-         // Llamar a la capa de datos para guardar en base
-         CNClienteDal datos = new CNClienteDal();
-         int resultado = datos.InsertarCliente(cliente);
-
-         if (resultado > 0)
-         {
-             MessageBox.Show("Exito al guardar datos de factura");
-             this.DialogResult = DialogResult.OK;
-             this.Close(); // Cierra el formulario si todo salió bien
-         }
-         else
-         {
-             MessageBox.Show("Error 404: el codigo del cerebro del jeifferson de este codigo dejo de compilar");
-          }*/
-            LimpiarCampos();
+            // LimpiarCampos();
         }
 
         private void txtNombreC_KeyPress(object sender, KeyPressEventArgs e)
@@ -264,48 +180,58 @@ namespace Capa_Presentacion
 
         private void btnVolverC_Click(object sender, EventArgs e)
         {
-
+            MenuPrincipal MP = new MenuPrincipal();
+            MP.BringToFront();
             this.Dispose();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvClientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un cliente para eliminar.");
+                return;
+            }
 
-            //metodo para eliminar empleado
-            /*public void EliminarEmpleado(int idEmpleado)
-              {
-              using (SqlConnection conn = conexion.ObtenerConexion())
-              {
-                  conn.Open();
-                  string query = "DELETE FROM Empleados WHERE ID = @ID";
-                  using (SqlCommand cmd = new SqlCommand(query, conn))
-                  {
-                      cmd.Parameters.AddWithValue("@ID", idEmpleado);
-                      cmd.ExecuteNonQuery();
-                  }
-                }
-            public void EditarEmpleado(Empleado empleado)
-          {
-              using (SqlConnection conn = conexion.ObtenerConexion())
-              {
-                  conn.Open();
-                  string query = "UPDATE Empleados SET Nombre = @Nombre, Cedula = @Cedula, Cargo = @Cargo, Sueldo = @Sueldo, " +
-                      "Fecha_Ingreso = @Fecha_Ingreso WHERE ID = @ID";
+            DialogResult confirm = MessageBox.Show(
+                "¿Estás seguro de que deseas eliminar este cliente?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
-                  using (SqlCommand cmd = new SqlCommand(query, conn))
-                  {
-                      cmd.Parameters.AddWithValue("@ID", empleado.ID);
-                      cmd.Parameters.AddWithValue("@Nombre", empleado.Nombre);
-                      cmd.Parameters.AddWithValue("@Cedula", empleado.Cedula);
-                      cmd.Parameters.AddWithValue("@Cargo", empleado.Cargo);
-                      cmd.Parameters.AddWithValue("@Sueldo", empleado.Sueldo);
-                      cmd.Parameters.AddWithValue("@Fecha_Ingreso", empleado.Fecha_Ingreso);
-                      cmd.ExecuteNonQuery();
-                  }
-              }
-          }*/
+            if (confirm == DialogResult.No) return;
+
+            // Obtener el ID del cliente seleccionado en el DataGridView
+            int idClienteSelec = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["IdCliente"].Value);
+
+            // Llamar a la lógica de datos para eliminar el cliente
+            CNClienteDal datos = new CNClienteDal();
+            int eliminado = datos.EliminarCliente(idClienteSelec);
+
+            if (eliminado > 0)
+            {
+                MessageBox.Show("Cliente eliminado correctamente.");
+                Mclientes(); // Refrescar el listado
+                LimpiarCampos(); // Limpiar los campos si alguno estaba cargado
+            }
+            else
+            {
+                MessageBox.Show("Error al eliminar el cliente.");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Facturacion F = new Facturacion();
+            F.Show();
+            this.Dispose();
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
-    
+
 
 }

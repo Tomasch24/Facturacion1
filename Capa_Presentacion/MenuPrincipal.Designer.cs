@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             pnMenuV = new Panel();
             btnEmpleados = new Button();
             btnClientes = new Button();
@@ -55,7 +54,7 @@
             // 
             // pnMenuV
             // 
-            pnMenuV.BackColor = Color.White;
+            pnMenuV.BackColor = Color.FromArgb(46, 58, 89);
             pnMenuV.Controls.Add(btnEmpleados);
             pnMenuV.Controls.Add(btnClientes);
             pnMenuV.Controls.Add(btnVentas);
@@ -64,9 +63,9 @@
             pnMenuV.Dock = DockStyle.Left;
             pnMenuV.Location = new Point(0, 0);
             pnMenuV.Name = "pnMenuV";
-            pnMenuV.Size = new Size(350, 799);
+            pnMenuV.Size = new Size(86, 799);
             pnMenuV.TabIndex = 0;
-            pnMenuV.Paint += pnMenuV_Paint;
+           
             // 
             // btnEmpleados
             // 
@@ -76,8 +75,8 @@
             btnEmpleados.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnEmpleados.FlatStyle = FlatStyle.Flat;
             btnEmpleados.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEmpleados.ForeColor = SystemColors.ControlText;
-            btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
+            btnEmpleados.ForeColor = SystemColors.ControlLightLight;
+            btnEmpleados.Image = Properties.Resources.IconoEmpleados;
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
             btnEmpleados.Location = new Point(0, 372);
             btnEmpleados.Name = "btnEmpleados";
@@ -85,6 +84,7 @@
             btnEmpleados.TabIndex = 4;
             btnEmpleados.Text = "Coming Soon";
             btnEmpleados.UseVisualStyleBackColor = false;
+            btnEmpleados.Click += btnEmpleados_Click;
             // 
             // btnClientes
             // 
@@ -94,8 +94,8 @@
             btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClientes.ForeColor = SystemColors.ControlText;
-            btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
+            btnClientes.ForeColor = SystemColors.ControlLightLight;
+            btnClientes.Image = Properties.Resources.IconoClientes;
             btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnClientes.Location = new Point(0, 269);
             btnClientes.Name = "btnClientes";
@@ -113,8 +113,8 @@
             btnVentas.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnVentas.FlatStyle = FlatStyle.Flat;
             btnVentas.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVentas.ForeColor = SystemColors.ControlText;
-            btnVentas.Image = (Image)resources.GetObject("btnVentas.Image");
+            btnVentas.ForeColor = SystemColors.ControlLightLight;
+            btnVentas.Image = Properties.Resources.IconVentas;
             btnVentas.ImageAlign = ContentAlignment.MiddleLeft;
             btnVentas.Location = new Point(0, 162);
             btnVentas.Name = "btnVentas";
@@ -132,12 +132,13 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(255, 41);
             lblTitulo.TabIndex = 1;
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
             lblTitulo.Text = "Menu Principal";
             lblTitulo.Click += lblTitulo_Click;
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Image = Properties.Resources.Logo;
             pictureBox7.Location = new Point(0, 0);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(100, 100);
@@ -154,9 +155,9 @@
             pnBarraTitulo.Controls.Add(pbMenu);
             pnBarraTitulo.Controls.Add(iconMaximizar);
             pnBarraTitulo.Dock = DockStyle.Top;
-            pnBarraTitulo.Location = new Point(350, 0);
+            pnBarraTitulo.Location = new Point(86, 0);
             pnBarraTitulo.Name = "pnBarraTitulo";
-            pnBarraTitulo.Size = new Size(999, 50);
+            pnBarraTitulo.Size = new Size(1263, 50);
             pnBarraTitulo.TabIndex = 1;
             pnBarraTitulo.MouseDown += pnBarraTitulo_MouseDown;
             // 
@@ -164,8 +165,8 @@
             // 
             IconCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             IconCerrar.Cursor = Cursors.Hand;
-            IconCerrar.Image = (Image)resources.GetObject("IconCerrar.Image");
-            IconCerrar.Location = new Point(952, 10);
+            IconCerrar.Image = Properties.Resources.iconClose;
+            IconCerrar.Location = new Point(1216, 10);
             IconCerrar.Name = "IconCerrar";
             IconCerrar.Size = new Size(35, 35);
             IconCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -178,8 +179,8 @@
             iconMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconMinimizar.BackColor = Color.WhiteSmoke;
             iconMinimizar.Cursor = Cursors.Hand;
-            iconMinimizar.Image = (Image)resources.GetObject("iconMinimizar.Image");
-            iconMinimizar.Location = new Point(870, 10);
+            iconMinimizar.Image = Properties.Resources.IconMin;
+            iconMinimizar.Location = new Point(1134, 10);
             iconMinimizar.Name = "iconMinimizar";
             iconMinimizar.Size = new Size(35, 35);
             iconMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -191,8 +192,8 @@
             // 
             iconRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconRestaurar.Cursor = Cursors.Hand;
-            iconRestaurar.Image = (Image)resources.GetObject("iconRestaurar.Image");
-            iconRestaurar.Location = new Point(913, 10);
+            iconRestaurar.Image = Properties.Resources.IconVent;
+            iconRestaurar.Location = new Point(1177, 10);
             iconRestaurar.Name = "iconRestaurar";
             iconRestaurar.Size = new Size(35, 35);
             iconRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -204,7 +205,7 @@
             // pbMenu
             // 
             pbMenu.Cursor = Cursors.Hand;
-            pbMenu.Image = (Image)resources.GetObject("pbMenu.Image");
+            pbMenu.Image = Properties.Resources.IconMenu;
             pbMenu.Location = new Point(15, 10);
             pbMenu.Name = "pbMenu";
             pbMenu.Size = new Size(35, 35);
@@ -217,8 +218,8 @@
             // 
             iconMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconMaximizar.Cursor = Cursors.Hand;
-            iconMaximizar.Image = (Image)resources.GetObject("iconMaximizar.Image");
-            iconMaximizar.Location = new Point(913, 10);
+            iconMaximizar.Image = Properties.Resources.IconMax;
+            iconMaximizar.Location = new Point(1177, 10);
             iconMaximizar.Name = "iconMaximizar";
             iconMaximizar.Size = new Size(35, 35);
             iconMaximizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -230,14 +231,14 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(350, 50);
+            pictureBox1.Image = Properties.Resources.Logo_transparente_F;
+            pictureBox1.Location = new Point(86, 50);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(999, 749);
+            pictureBox1.Size = new Size(1263, 749);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+           
             // 
             // MenuPrincipal
             // 

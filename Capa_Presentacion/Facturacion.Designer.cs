@@ -59,20 +59,26 @@
             lblId = new Label();
             txtIdCliente = new TextBox();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             btnVolver = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblCliente
             // 
             lblCliente.AutoSize = true;
-            lblCliente.BackColor = Color.DimGray;
+            lblCliente.BackColor = Color.FromArgb(46, 58, 89);
             lblCliente.FlatStyle = FlatStyle.Flat;
             lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCliente.Location = new Point(30, 127);
+            lblCliente.ForeColor = SystemColors.ControlLightLight;
+            lblCliente.Location = new Point(30, 128);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(81, 27);
             lblCliente.TabIndex = 1;
@@ -81,9 +87,10 @@
             // lblTelef
             // 
             lblTelef.AutoSize = true;
-            lblTelef.BackColor = Color.DimGray;
+            lblTelef.BackColor = Color.FromArgb(46, 58, 89);
             lblTelef.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTelef.Location = new Point(29, 173);
+            lblTelef.ForeColor = SystemColors.ControlLightLight;
+            lblTelef.Location = new Point(29, 172);
             lblTelef.Name = "lblTelef";
             lblTelef.Size = new Size(96, 27);
             lblTelef.TabIndex = 100;
@@ -92,9 +99,10 @@
             // lblRnc
             // 
             lblRnc.AutoSize = true;
-            lblRnc.BackColor = Color.DimGray;
+            lblRnc.BackColor = Color.FromArgb(46, 58, 89);
             lblRnc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRnc.Location = new Point(29, 225);
+            lblRnc.ForeColor = SystemColors.ControlLightLight;
+            lblRnc.Location = new Point(30, 222);
             lblRnc.Name = "lblRnc";
             lblRnc.Size = new Size(61, 27);
             lblRnc.TabIndex = 3;
@@ -103,8 +111,9 @@
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.BackColor = Color.DimGray;
+            lblDescripcion.BackColor = Color.FromArgb(46, 58, 89);
             lblDescripcion.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDescripcion.ForeColor = SystemColors.ControlLightLight;
             lblDescripcion.Location = new Point(30, 366);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(262, 32);
@@ -114,8 +123,9 @@
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.BackColor = Color.DimGray;
+            lblPrecio.BackColor = Color.FromArgb(46, 58, 89);
             lblPrecio.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPrecio.ForeColor = SystemColors.ControlLightLight;
             lblPrecio.Location = new Point(29, 497);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(74, 27);
@@ -127,6 +137,7 @@
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.Transparent;
             lblCantidad.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCantidad.ForeColor = SystemColors.ControlLightLight;
             lblCantidad.Location = new Point(30, 538);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(99, 27);
@@ -136,8 +147,9 @@
             // lblTipo
             // 
             lblTipo.AutoSize = true;
-            lblTipo.BackColor = Color.DimGray;
+            lblTipo.BackColor = Color.FromArgb(46, 58, 89);
             lblTipo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTipo.ForeColor = SystemColors.ControlLightLight;
             lblTipo.Location = new Point(29, 586);
             lblTipo.Name = "lblTipo";
             lblTipo.Size = new Size(55, 27);
@@ -147,8 +159,9 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.BackColor = Color.DimGray;
+            label9.BackColor = Color.FromArgb(46, 58, 89);
             label9.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ControlLightLight;
             label9.Location = new Point(29, 277);
             label9.Name = "label9";
             label9.Size = new Size(70, 27);
@@ -158,13 +171,14 @@
             // lblSistema
             // 
             lblSistema.AutoSize = true;
-            lblSistema.BackColor = Color.DimGray;
+            lblSistema.BackColor = Color.Transparent;
             lblSistema.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSistema.Location = new Point(164, 9);
+            lblSistema.ForeColor = SystemColors.ControlLightLight;
+            lblSistema.Location = new Point(69, 9);
             lblSistema.Name = "lblSistema";
-            lblSistema.Size = new Size(211, 41);
+            lblSistema.Size = new Size(105, 41);
             lblSistema.TabIndex = 11;
-            lblSistema.Text = "Facturacion ";
+            lblSistema.Text = "Venta";
             // 
             // txtCliente
             // 
@@ -191,12 +205,12 @@
             dtpFecha.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(164, 277);
-            dtpFecha.MaxDate = new DateTime(2025, 6, 3, 0, 0, 0, 0);
-            dtpFecha.MinDate = new DateTime(2025, 6, 3, 0, 0, 0, 0);
+            dtpFecha.MaxDate = new DateTime(2025, 7, 9, 0, 0, 0, 0);
+            dtpFecha.MinDate = new DateTime(2025, 7, 9, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(318, 28);
             dtpFecha.TabIndex = 5;
-            dtpFecha.Value = new DateTime(2025, 6, 3, 0, 0, 0, 0);
+            dtpFecha.Value = new DateTime(2025, 7, 9, 0, 0, 0, 0);
             // 
             // button1
             // 
@@ -261,15 +275,16 @@
             dgvFactura.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.White;
             dgvFactura.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvFactura.Size = new Size(761, 530);
-            dgvFactura.TabIndex = 26;
+            dgvFactura.Size = new Size(1195, 593);
+            dgvFactura.TabIndex = 0;
             dgvFactura.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.DimGray;
+            label1.BackColor = Color.FromArgb(46, 58, 89);
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(29, 420);
             label1.Name = "label1";
             label1.Size = new Size(129, 54);
@@ -312,11 +327,11 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAgregar.Anchor = AnchorStyles.Bottom;
             btnAgregar.BackColor = Color.Gainsboro;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.Location = new Point(1028, 659);
+            btnAgregar.Location = new Point(1061, 722);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(289, 52);
             btnAgregar.TabIndex = 101;
@@ -329,19 +344,20 @@
             btnEdit.BackColor = Color.Gainsboro;
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(100, 659);
+            btnEdit.Location = new Point(62, 659);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(192, 52);
+            btnEdit.Size = new Size(230, 52);
             btnEdit.TabIndex = 102;
-            btnEdit.Text = "Buscar por Id";
+            btnEdit.Text = "Buscar IdCliente";
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.BackColor = Color.DimGray;
+            lblId.BackColor = Color.FromArgb(46, 58, 89);
             lblId.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblId.ForeColor = SystemColors.ControlLightLight;
             lblId.Location = new Point(30, 83);
             lblId.Name = "lblId";
             lblId.Size = new Size(32, 27);
@@ -358,22 +374,49 @@
             // panel1
             // 
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.DimGray;
+            panel1.BackColor = Color.FromArgb(46, 58, 89);
+            panel1.Controls.Add(lblId);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(btnEdit);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(lblSistema);
             panel1.Controls.Add(lblCantidad);
+            panel1.Controls.Add(lblCliente);
+            panel1.Controls.Add(lblTelef);
+            panel1.Controls.Add(lblRnc);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(539, 771);
+            panel1.Size = new Size(539, 834);
             panel1.TabIndex = 107;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox2.Image = Capa_Presentacion.Properties.Resources.Logo;
+            pictureBox2.Location = new Point(2, 747);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(101, 84);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 110;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Capa_Presentacion.Properties.Resources.IconVentas;
+            pictureBox1.Location = new Point(3, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(69, 57);
+            pictureBox1.TabIndex = 109;
+            pictureBox1.TabStop = false;
             // 
             // btnVolver
             // 
-            btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnVolver.BackColor = Color.Gainsboro;
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(577, 659);
+            btnVolver.Location = new Point(577, 722);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(289, 52);
             btnVolver.TabIndex = 108;
@@ -381,16 +424,29 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.BackColor = Color.Gainsboro;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(1483, 722);
+            button2.Name = "button2";
+            button2.Size = new Size(289, 52);
+            button2.TabIndex = 109;
+            button2.Text = "Buscar IdFactura";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
+            // 
             // Facturacion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1360, 771);
+            BackColor = Color.FromArgb(242, 242, 242);
+            ClientSize = new Size(1794, 834);
+            Controls.Add(button2);
             Controls.Add(btnVolver);
             Controls.Add(txtIdCliente);
-            Controls.Add(lblId);
-            Controls.Add(btnEdit);
             Controls.Add(btnAgregar);
             Controls.Add(txtCantidad);
             Controls.Add(txtRnc);
@@ -407,9 +463,6 @@
             Controls.Add(lblTipo);
             Controls.Add(lblPrecio);
             Controls.Add(lblDescripcion);
-            Controls.Add(lblRnc);
-            Controls.Add(lblTelef);
-            Controls.Add(lblCliente);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
@@ -423,6 +476,8 @@
             ((System.ComponentModel.ISupportInitialize)txtCantidad).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -456,5 +511,8 @@
         private TextBox txtIdCliente;
         private Panel panel1;
         private Button btnVolver;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Button button2;
     }
 }

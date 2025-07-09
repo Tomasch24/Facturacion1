@@ -10,15 +10,22 @@ namespace capa_presentacion
 {
     public partial class Facturacion : Form
     {
+        
         public Facturacion()
         {
             InitializeComponent();
+            MDTGV();
             GenerarFactura();
             txtCliente.MaxLength = 50;
             txtDescripcion.MaxLength = 80;
             dtpFecha.Enabled = false;
         }
-
+        public void MDTGV()
+        {
+            FacturaDatos datos = new FacturaDatos();
+            SqlConnection conn = new SqlConnection(datos.conexion);
+            SqlDataAdapter adapt;
+        }
         //TODO Evento del boton guardar para insertar los datos a la base de datos
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,7 +43,7 @@ namespace capa_presentacion
                 return;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) )
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
             {
                 MessageBox.Show("Error en el campo Precio.", "Ingrese un Precio valido", MessageBoxButtons.OK);
                 return;
@@ -47,8 +54,17 @@ namespace capa_presentacion
                 MessageBox.Show("Error en el campo Cantidad.", "Ingrese una Cantidad valida", MessageBoxButtons.OK);
                 return;
             }
+            CNCliente cliente;
+            if (int.TryParse(txtIdCliente.Text, out int id))
+            {
+                cliente = CNClienteDal.BuscarPorId(id);
+            }
+            else
+            {
+                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
+            }
 
-            var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
+            //var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
 
             Factura factura = cbTipo.SelectedItem?.ToString() == "Contado"
                 ? new FacturaContado(cliente)
@@ -68,22 +84,23 @@ namespace capa_presentacion
             {
                 MessageBox.Show("Exito al guardar datos de factura");
 
-                CNMemoriaTemporal.FacturasGeneradas.Add(factura);
-                dgvFactura.DataSource = null;
-                dgvFactura.DataSource = CNMemoriaTemporal.FacturasGeneradas.Select(f => new
-                {
+                /* CNMemoriaTemporal.FacturasGeneradas.Add(factura);
+                 dgvFactura.DataSource = null;
+                 dgvFactura.DataSource = CNMemoriaTemporal.FacturasGeneradas.Select(f => new
+                 {
 
-                    IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "Cliente no registrado",
-                    f.Cliente.Nombre,
-                    f.Descripcion,
-                    f.Cantidad,
-                    f.Precio,
-                    f.SubTotal,
-                    f.Descuento,
-                    f.Total,
-                    Tipo = f.TipoFactura(),
-                    f.Fecha
-                }).ToList();
+                     IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "Cliente no registrado",
+                     f.Cliente.Nombre,
+                     f.Descripcion,
+                     f.Cantidad,
+                     f.Precio,
+                     f.SubTotal,
+                     f.Descuento,
+                     f.Total,
+                     Tipo = f.TipoFactura(),
+                     f.Fecha
+                 }).ToList();*/
+                GenerarFactura();
 
             }
             else
@@ -95,37 +112,36 @@ namespace capa_presentacion
 
 
         }
+        private void GenerarFactura()
+        {
+            var lista = FacturaDal.GenerarFacturas();
 
+            dgvFactura.DataSource = null;
+            dgvFactura.DataSource = lista.Select(f => new
+            {
+                IdFactura = f.IdFactura,
+                IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "No registrado",
+                Nombre = f.Cliente?.Nombre ?? f.NombreFactura ?? "Desconocido",
+                f.Descripcion,
+                f.Cantidad,
+                f.Precio,
+                f.SubTotal,
+                f.Descuento,
+                f.Total,
+                Tipo = f.TipoFactura(),
+                f.Fecha
+            }).ToList();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            GenerarFactura();
             this.WindowState = FormWindowState.Maximized;
             //TODO se añaden contado y credito para el CB del tipo de factura
             cbTipo.Items.Add("Contado");
             cbTipo.Items.Add("Crédito");
             cbTipo.SelectedIndex = 0;
-        }
-
-
-
-        //TODO Metodo Generar Factura (Aqui esta)
-        private void GenerarFactura()
-        {
-            FacturaDatos data = new FacturaDatos();
-            using (SqlConnection conn = new SqlConnection(data.conexion))
-            {
-                SqlDataAdapter adapt;
-                conn.Open();
-
-                DataTable dt = new DataTable();
-
-                adapt = new SqlDataAdapter("SELECT * FROM Factura", conn);
-
-                adapt.Fill(dt);
-
-                dgvFactura.DataSource = dt;
-
-                conn.Close();
-            }
+            dtpFecha.MinDate = DateTime.Today;
+            dtpFecha.MaxDate = DateTime.Now;
         }
 
         //TODO Metodo para Limpiar Campos
@@ -136,7 +152,6 @@ namespace capa_presentacion
             txtRnc.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -144,6 +159,7 @@ namespace capa_presentacion
             Clientes C = new Clientes();
 
             C.Show();
+            this.Dispose();
 
         }
 
@@ -151,7 +167,7 @@ namespace capa_presentacion
         {
             if (!int.TryParse(txtIdCliente.Text, out int idCliente))
             {
-                MessageBox.Show("Por favor ingrese un Id válido.");
+                MessageBox.Show("Por favor ingrese un Id de cliente válido.");
                 return;
             }
 
@@ -172,17 +188,56 @@ namespace capa_presentacion
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            
+            MenuPrincipal MP = new MenuPrincipal();
+            MP.BringToFront();
             this.Dispose();
         }
 
         private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo letras, espacios y teclas de control (como backspace)
+            //TODO Permitir  que el usuario solo pueda usar letras, espacios y teclas de control (como backspace)
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true; // Bloquear la tecla
             }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtIdCliente.Text, out int id))
+            {
+                MessageBox.Show("Por favor ingrese un Id de factura válido.");
+                return;
+            }
+
+            Factura factura = FacturaDal.BuscarFacturaPorId(id);
+
+            if (factura != null)
+            {
+                dgvFactura.DataSource = new[]
+                {
+                     new
+                     {
+
+                         IdFactura = factura.IdFactura,
+                         IdCliente = factura.Cliente?.IdCliente > 0 ? factura.Cliente.IdCliente.ToString() : "No registrado",
+                         Nombre = factura.Cliente?.Nombre ?? factura.NombreFactura ?? "Desconocido",
+                         factura.Descripcion,
+                         factura.Cantidad,
+                         factura.Precio,
+                         factura.SubTotal,
+                         factura.Descuento,
+                         factura.Total,
+                         Tipo = factura.TipoFactura(),
+                         factura.Fecha
+                     }
+                };
+            }
+            else
+            {
+                MessageBox.Show("No se encontró ninguna factura con ese Id.");
+            }
+            LimpiarCampos();
         }
     }
 }
