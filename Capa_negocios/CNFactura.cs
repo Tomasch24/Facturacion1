@@ -9,11 +9,14 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace capa_negocios
 {
+    //TODO clase abstracta base Factura
     public abstract class Factura
     {
         public int IdFactura { get; set; }
         public CNCliente Cliente { get; set; }
         public string NombreFactura { get; set; }
+        public string TelefonoF { get; set; }
+        public string RncF { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
@@ -33,8 +36,6 @@ namespace capa_negocios
                 Descuento = SubTotal * 0.05m;
             else
                 Descuento = 0;
-
-           // Total = SubTotal - Descuento;
         }
 
         //TODO Metodo Virtual para calcular totales

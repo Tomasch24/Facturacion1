@@ -32,6 +32,10 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            btnBuscarC2 = new Button();
+            btnBuscarC = new Button();
+            lblIdC = new Label();
+            txtIdClienteC = new TextBox();
             pictureBox2 = new PictureBox();
             btnEditar = new Button();
             pictureBox1 = new PictureBox();
@@ -49,15 +53,21 @@
             dgvClientes = new DataGridView();
             btnEliminar = new Button();
             button1 = new Button();
+            pbAtras = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAtras).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 58, 89);
+            panel1.Controls.Add(btnBuscarC2);
+            panel1.Controls.Add(btnBuscarC);
+            panel1.Controls.Add(lblIdC);
+            panel1.Controls.Add(txtIdClienteC);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(btnEditar);
             panel1.Controls.Add(pictureBox1);
@@ -74,14 +84,59 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(397, 706);
+            panel1.Size = new Size(420, 768);
             panel1.TabIndex = 0;
+            // 
+            // btnBuscarC2
+            // 
+            btnBuscarC2.BackColor = Color.Gainsboro;
+            btnBuscarC2.FlatStyle = FlatStyle.Flat;
+            btnBuscarC2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarC2.Location = new Point(84, 440);
+            btnBuscarC2.Name = "btnBuscarC2";
+            btnBuscarC2.Size = new Size(230, 52);
+            btnBuscarC2.TabIndex = 112;
+            btnBuscarC2.Text = "Buscar IdCliente";
+            btnBuscarC2.UseVisualStyleBackColor = false;
+            btnBuscarC2.Click += btnBuscarC2_Click;
+            // 
+            // btnBuscarC
+            // 
+            btnBuscarC.BackColor = Color.Aquamarine;
+            btnBuscarC.FlatStyle = FlatStyle.Flat;
+            btnBuscarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarC.Location = new Point(84, 440);
+            btnBuscarC.Name = "btnBuscarC";
+            btnBuscarC.Size = new Size(230, 52);
+            btnBuscarC.TabIndex = 113;
+            btnBuscarC.Text = "Buscar IdCliente";
+            btnBuscarC.UseVisualStyleBackColor = false;
+            btnBuscarC.Click += btnBuscarC_Click;
+            // 
+            // lblIdC
+            // 
+            lblIdC.AutoSize = true;
+            lblIdC.BackColor = Color.FromArgb(46, 58, 89);
+            lblIdC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIdC.ForeColor = SystemColors.ControlLightLight;
+            lblIdC.Location = new Point(22, 116);
+            lblIdC.Name = "lblIdC";
+            lblIdC.Size = new Size(32, 27);
+            lblIdC.TabIndex = 106;
+            lblIdC.Text = "Id";
+            // 
+            // txtIdClienteC
+            // 
+            txtIdClienteC.Location = new Point(128, 112);
+            txtIdClienteC.Name = "txtIdClienteC";
+            txtIdClienteC.Size = new Size(210, 31);
+            txtIdClienteC.TabIndex = 17;
             // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox2.Image = Properties.Resources.Logo;
-            pictureBox2.Location = new Point(0, 622);
+            pictureBox2.Location = new Point(0, 684);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(101, 84);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -94,9 +149,9 @@
             btnEditar.BackColor = Color.Gainsboro;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.Location = new Point(92, 553);
+            btnEditar.Location = new Point(84, 508);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(195, 44);
+            btnEditar.Size = new Size(230, 44);
             btnEditar.TabIndex = 13;
             btnEditar.Text = "Editar Cliente";
             btnEditar.UseVisualStyleBackColor = false;
@@ -113,7 +168,7 @@
             // 
             // txtRncC
             // 
-            txtRncC.Location = new Point(128, 266);
+            txtRncC.Location = new Point(128, 292);
             txtRncC.Mask = "000-0000000-0";
             txtRncC.Name = "txtRncC";
             txtRncC.Size = new Size(210, 31);
@@ -121,7 +176,7 @@
             // 
             // txtTelefC
             // 
-            txtTelefC.Location = new Point(128, 200);
+            txtTelefC.Location = new Point(128, 233);
             txtTelefC.Mask = "+1 (999) 000-0000";
             txtTelefC.Name = "txtTelefC";
             txtTelefC.Size = new Size(210, 31);
@@ -132,9 +187,9 @@
             btnGuardarC.BackColor = Color.Gainsboro;
             btnGuardarC.FlatStyle = FlatStyle.Flat;
             btnGuardarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardarC.Location = new Point(111, 467);
+            btnGuardarC.Location = new Point(84, 572);
             btnGuardarC.Name = "btnGuardarC";
-            btnGuardarC.Size = new Size(155, 52);
+            btnGuardarC.Size = new Size(230, 52);
             btnGuardarC.TabIndex = 10;
             btnGuardarC.Text = "Guardar";
             btnGuardarC.UseVisualStyleBackColor = false;
@@ -142,14 +197,14 @@
             // 
             // txtCorreoC
             // 
-            txtCorreoC.Location = new Point(128, 332);
+            txtCorreoC.Location = new Point(128, 351);
             txtCorreoC.Name = "txtCorreoC";
             txtCorreoC.Size = new Size(210, 31);
             txtCorreoC.TabIndex = 8;
             // 
             // txtNombreC
             // 
-            txtNombreC.Location = new Point(128, 126);
+            txtNombreC.Location = new Point(128, 166);
             txtNombreC.Name = "txtNombreC";
             txtNombreC.Size = new Size(210, 31);
             txtNombreC.TabIndex = 5;
@@ -160,7 +215,7 @@
             lblCorreoC.AutoSize = true;
             lblCorreoC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCorreoC.ForeColor = SystemColors.ControlLightLight;
-            lblCorreoC.Location = new Point(22, 334);
+            lblCorreoC.Location = new Point(22, 355);
             lblCorreoC.Name = "lblCorreoC";
             lblCorreoC.Size = new Size(79, 27);
             lblCorreoC.TabIndex = 4;
@@ -171,7 +226,7 @@
             lblRncC.AutoSize = true;
             lblRncC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRncC.ForeColor = SystemColors.ControlLightLight;
-            lblRncC.Location = new Point(22, 270);
+            lblRncC.Location = new Point(22, 296);
             lblRncC.Name = "lblRncC";
             lblRncC.Size = new Size(61, 27);
             lblRncC.TabIndex = 3;
@@ -182,7 +237,7 @@
             lblTelef2.AutoSize = true;
             lblTelef2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelef2.ForeColor = SystemColors.ControlLightLight;
-            lblTelef2.Location = new Point(22, 204);
+            lblTelef2.Location = new Point(16, 237);
             lblTelef2.Name = "lblTelef2";
             lblTelef2.Size = new Size(96, 27);
             lblTelef2.TabIndex = 2;
@@ -193,7 +248,7 @@
             lblNombreC.AutoSize = true;
             lblNombreC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombreC.ForeColor = SystemColors.ControlLightLight;
-            lblNombreC.Location = new Point(22, 130);
+            lblNombreC.Location = new Point(22, 170);
             lblNombreC.Name = "lblNombreC";
             lblNombreC.Size = new Size(90, 27);
             lblNombreC.TabIndex = 1;
@@ -216,7 +271,7 @@
             btnVolverC.BackColor = Color.Gainsboro;
             btnVolverC.FlatStyle = FlatStyle.Flat;
             btnVolverC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverC.Location = new Point(438, 572);
+            btnVolverC.Location = new Point(494, 654);
             btnVolverC.Name = "btnVolverC";
             btnVolverC.Size = new Size(233, 44);
             btnVolverC.TabIndex = 14;
@@ -229,7 +284,7 @@
             dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle1.BackColor = Color.Aqua;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -245,7 +300,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvClientes.Location = new Point(438, 32);
+            dgvClientes.Location = new Point(494, 78);
             dgvClientes.Name = "dgvClientes";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.SkyBlue;
@@ -256,7 +311,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvClientes.RowHeadersWidth = 62;
-            dgvClientes.Size = new Size(896, 472);
+            dgvClientes.Size = new Size(1018, 534);
             dgvClientes.TabIndex = 1;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
@@ -267,7 +322,7 @@
             btnEliminar.BackColor = Color.Gainsboro;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(1085, 572);
+            btnEliminar.Location = new Point(1275, 654);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(237, 44);
             btnEliminar.TabIndex = 15;
@@ -281,7 +336,7 @@
             button1.BackColor = Color.Gainsboro;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(768, 572);
+            button1.Location = new Point(897, 654);
             button1.Name = "button1";
             button1.Size = new Size(233, 44);
             button1.TabIndex = 16;
@@ -289,11 +344,24 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // pbAtras
+            // 
+            pbAtras.Image = Properties.Resources.Flecha_hacia_atras;
+            pbAtras.Location = new Point(494, 24);
+            pbAtras.Name = "pbAtras";
+            pbAtras.Size = new Size(52, 48);
+            pbAtras.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAtras.TabIndex = 112;
+            pbAtras.TabStop = false;
+            pbAtras.Visible = false;
+            pbAtras.Click += pbAtras_Click;
+            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1371, 706);
+            ClientSize = new Size(1561, 768);
+            Controls.Add(pbAtras);
             Controls.Add(button1);
             Controls.Add(btnEliminar);
             Controls.Add(btnVolverC);
@@ -309,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAtras).EndInit();
             ResumeLayout(false);
         }
 
@@ -332,5 +401,10 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button button1;
+        private TextBox txtIdClienteC;
+        private Label lblIdC;
+        private Button btnBuscarC2;
+        private Button btnBuscarC;
+        private PictureBox pbAtras;
     }
 }

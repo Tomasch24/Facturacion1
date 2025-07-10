@@ -10,22 +10,21 @@ namespace capa_presentacion
 {
     public partial class Facturacion : Form
     {
-        
+
         public Facturacion()
         {
             InitializeComponent();
-            MDTGV();
+            dtpFecha.Value = DateTime.Today;
             GenerarFactura();
             txtCliente.MaxLength = 50;
             txtDescripcion.MaxLength = 80;
             dtpFecha.Enabled = false;
+            txtIdCliente.MaxLength = 5;
+            txtIdCliente.Hide();
+            lblId.Hide();
+            txtPrecio.MaxLength = 6;
         }
-        public void MDTGV()
-        {
-            FacturaDatos datos = new FacturaDatos();
-            SqlConnection conn = new SqlConnection(datos.conexion);
-            SqlDataAdapter adapt;
-        }
+
         //TODO Evento del boton guardar para insertar los datos a la base de datos
         private void button1_Click(object sender, EventArgs e)
         {
@@ -33,27 +32,40 @@ namespace capa_presentacion
             // Validaciones
             if (string.IsNullOrWhiteSpace(txtCliente.Text))
             {
-                MessageBox.Show("Error en el campo Cliente.", "Ingrese un Nombre valido", MessageBoxButtons.OK);
+                MessageBox.Show("El campo Cliente esta incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!txtTelef1.MaskCompleted)
+            {
+                MessageBox.Show("El campo Teléfono está incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!txtRnc.MaskCompleted)
+            {
+                MessageBox.Show("El campo RNC está incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
-                MessageBox.Show("Error en el campo Descripcion.", "Ingrese una Descripcion de producto valida", MessageBoxButtons.OK);
-                return;
-            }
-
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
-            {
-                MessageBox.Show("Error en el campo Precio.", "Ingrese un Precio valido", MessageBoxButtons.OK);
+                MessageBox.Show("Error en el campo Referencia Producto.", "Ingrese una Referencia Producto de producto valida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!int.TryParse(txtCantidad.Text, out int cantidad))
             {
-                MessageBox.Show("Error en el campo Cantidad.", "Ingrese una Cantidad valida", MessageBoxButtons.OK);
+                MessageBox.Show("Error en el campo Cantidad.", "Ingrese una Cantidad valida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                MessageBox.Show("Error en el campo Precio.", "Ingrese un Precio valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             CNCliente cliente;
             if (int.TryParse(txtIdCliente.Text, out int id))
             {
@@ -61,10 +73,9 @@ namespace capa_presentacion
             }
             else
             {
-                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
+                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtCorreo.Text);
             }
 
-            //var cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text);
 
             Factura factura = cbTipo.SelectedItem?.ToString() == "Contado"
                 ? new FacturaContado(cliente)
@@ -82,34 +93,24 @@ namespace capa_presentacion
 
             if (result > 0)
             {
-                MessageBox.Show("Exito al guardar datos de factura");
+                MessageBox.Show("Exito al guardar datos de factura","Factura guardada con Exito", MessageBoxButtons.OK);
 
-                /* CNMemoriaTemporal.FacturasGeneradas.Add(factura);
-                 dgvFactura.DataSource = null;
-                 dgvFactura.DataSource = CNMemoriaTemporal.FacturasGeneradas.Select(f => new
-                 {
 
-                     IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "Cliente no registrado",
-                     f.Cliente.Nombre,
-                     f.Descripcion,
-                     f.Cantidad,
-                     f.Precio,
-                     f.SubTotal,
-                     f.Descuento,
-                     f.Total,
-                     Tipo = f.TipoFactura(),
-                     f.Fecha
-                 }).ToList();*/
                 GenerarFactura();
 
             }
             else
             {
-                MessageBox.Show("Error 404: el codigo del cerebro del jeifferson de este codigo dejo de compilar");
+                MessageBox.Show("Error 404: el codigo del cerebro del jeifferson de este codigo dejo de compilar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             LimpiarCampos();
 
+            txtIdCliente.Hide();
+            lblId.Hide();
+            txtCliente.ReadOnly = false;
+            txtTelef1.ReadOnly = false;
+            txtRnc.ReadOnly = false;
 
         }
         private void GenerarFactura()
@@ -122,6 +123,8 @@ namespace capa_presentacion
                 IdFactura = f.IdFactura,
                 IdCliente = f.Cliente?.IdCliente > 0 ? f.Cliente.IdCliente.ToString() : "No registrado",
                 Nombre = f.Cliente?.Nombre ?? f.NombreFactura ?? "Desconocido",
+                Telefono = f.TelefonoF,
+                Rnc = f.RncF,
                 f.Descripcion,
                 f.Cantidad,
                 f.Precio,
@@ -140,8 +143,7 @@ namespace capa_presentacion
             cbTipo.Items.Add("Contado");
             cbTipo.Items.Add("Crédito");
             cbTipo.SelectedIndex = 0;
-            dtpFecha.MinDate = DateTime.Today;
-            dtpFecha.MaxDate = DateTime.Now;
+            dtpFecha.Value = DateTime.Today;
         }
 
         //TODO Metodo para Limpiar Campos
@@ -152,6 +154,7 @@ namespace capa_presentacion
             txtRnc.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
+            txtIdCliente.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -184,6 +187,11 @@ namespace capa_presentacion
             {
                 MessageBox.Show("Cliente no encontrado.");
             }
+            btnBuscarC2.Show();
+            txtCliente.ReadOnly = true;
+            txtTelef1.ReadOnly = true;
+            txtRnc.ReadOnly = true;
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -222,6 +230,8 @@ namespace capa_presentacion
                          IdFactura = factura.IdFactura,
                          IdCliente = factura.Cliente?.IdCliente > 0 ? factura.Cliente.IdCliente.ToString() : "No registrado",
                          Nombre = factura.Cliente?.Nombre ?? factura.NombreFactura ?? "Desconocido",
+                         factura.TelefonoF,
+                         factura.RncF,
                          factura.Descripcion,
                          factura.Cantidad,
                          factura.Precio,
@@ -238,6 +248,47 @@ namespace capa_presentacion
                 MessageBox.Show("No se encontró ninguna factura con ese Id.");
             }
             LimpiarCampos();
+            btnBuscarF.Show();
+            txtIdCliente.Hide();
+            lblId.Hide();
+            pbAtras.Show();
+
+        }
+
+        private void txtIdCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            btnBuscarC2.Hide();
+            txtIdCliente.Show();
+            lblId.Show();
+        }
+
+        private void btnBuscarF_Click(object sender, EventArgs e)
+        {
+            btnBuscarF.Hide();
+            txtIdCliente.Show();
+            lblId.Show();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pbAtras_Click(object sender, EventArgs e)
+        {
+            GenerarFactura();
+            pbAtras.Hide();
         }
     }
 }

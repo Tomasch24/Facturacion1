@@ -23,13 +23,13 @@ namespace Capa_Presentacion
 
         private void pbMenu_Click(object sender, EventArgs e)
         {
-            if (pnMenuV.Width == 86)
+            if (pnMenuV.Width == 80)
             {
                 pnMenuV.Width = 350;
             }
             else
             {
-                pnMenuV.Width = 86;
+                pnMenuV.Width = 80;
             }
         }
 

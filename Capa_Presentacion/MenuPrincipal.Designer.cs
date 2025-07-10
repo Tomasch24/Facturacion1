@@ -63,9 +63,8 @@
             pnMenuV.Dock = DockStyle.Left;
             pnMenuV.Location = new Point(0, 0);
             pnMenuV.Name = "pnMenuV";
-            pnMenuV.Size = new Size(86, 799);
+            pnMenuV.Size = new Size(80, 799);
             pnMenuV.TabIndex = 0;
-           
             // 
             // btnEmpleados
             // 
@@ -128,36 +127,36 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ControlLightLight;
             lblTitulo.Location = new Point(89, 34);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(255, 41);
             lblTitulo.TabIndex = 1;
-            lblTitulo.ForeColor = SystemColors.ControlLightLight;
             lblTitulo.Text = "Menu Principal";
             lblTitulo.Click += lblTitulo_Click;
             // 
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.Logo;
-            pictureBox7.Location = new Point(0, 0);
+            pictureBox7.Location = new Point(3, 3);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(100, 100);
+            pictureBox7.Size = new Size(88, 100);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
             // 
             // pnBarraTitulo
             // 
-            pnBarraTitulo.BackColor = Color.WhiteSmoke;
+            pnBarraTitulo.BackColor = Color.FromArgb(242, 242, 242);
             pnBarraTitulo.Controls.Add(IconCerrar);
             pnBarraTitulo.Controls.Add(iconMinimizar);
             pnBarraTitulo.Controls.Add(iconRestaurar);
             pnBarraTitulo.Controls.Add(pbMenu);
             pnBarraTitulo.Controls.Add(iconMaximizar);
             pnBarraTitulo.Dock = DockStyle.Top;
-            pnBarraTitulo.Location = new Point(86, 0);
+            pnBarraTitulo.Location = new Point(80, 0);
             pnBarraTitulo.Name = "pnBarraTitulo";
-            pnBarraTitulo.Size = new Size(1263, 50);
+            pnBarraTitulo.Size = new Size(1269, 50);
             pnBarraTitulo.TabIndex = 1;
             pnBarraTitulo.MouseDown += pnBarraTitulo_MouseDown;
             // 
@@ -166,7 +165,7 @@
             IconCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             IconCerrar.Cursor = Cursors.Hand;
             IconCerrar.Image = Properties.Resources.iconClose;
-            IconCerrar.Location = new Point(1216, 10);
+            IconCerrar.Location = new Point(1222, 10);
             IconCerrar.Name = "IconCerrar";
             IconCerrar.Size = new Size(35, 35);
             IconCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -180,7 +179,7 @@
             iconMinimizar.BackColor = Color.WhiteSmoke;
             iconMinimizar.Cursor = Cursors.Hand;
             iconMinimizar.Image = Properties.Resources.IconMin;
-            iconMinimizar.Location = new Point(1134, 10);
+            iconMinimizar.Location = new Point(1140, 10);
             iconMinimizar.Name = "iconMinimizar";
             iconMinimizar.Size = new Size(35, 35);
             iconMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -193,7 +192,7 @@
             iconRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconRestaurar.Cursor = Cursors.Hand;
             iconRestaurar.Image = Properties.Resources.IconVent;
-            iconRestaurar.Location = new Point(1177, 10);
+            iconRestaurar.Location = new Point(1183, 10);
             iconRestaurar.Name = "iconRestaurar";
             iconRestaurar.Size = new Size(35, 35);
             iconRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -219,7 +218,7 @@
             iconMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconMaximizar.Cursor = Cursors.Hand;
             iconMaximizar.Image = Properties.Resources.IconMax;
-            iconMaximizar.Location = new Point(1177, 10);
+            iconMaximizar.Location = new Point(1183, 10);
             iconMaximizar.Name = "iconMaximizar";
             iconMaximizar.Size = new Size(35, 35);
             iconMaximizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -229,16 +228,15 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackColor = Color.FromArgb(242, 242, 242);
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.Logo_transparente_F;
-            pictureBox1.Location = new Point(86, 50);
+            pictureBox1.Location = new Point(80, 50);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1263, 749);
+            pictureBox1.Size = new Size(1269, 749);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-           
             // 
             // MenuPrincipal
             // 

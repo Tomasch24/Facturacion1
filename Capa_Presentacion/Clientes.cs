@@ -12,7 +12,9 @@ namespace Capa_Presentacion
         public Clientes()
         {
             InitializeComponent();
-
+            lblIdC.Hide();
+            txtIdClienteC.Hide();
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -27,17 +29,18 @@ namespace Capa_Presentacion
         {
             if (string.IsNullOrWhiteSpace(txtNombreC.Text))
             {
-                MessageBox.Show("Error en el campo Nombre.", "Ingrese un Nombre valido", MessageBoxButtons.OK);
+                MessageBox.Show("Error en el campo Nombre.", "Ingrese un Nombre valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtTelefC.Text))
+            if (!txtTelefC.MaskCompleted)
             {
-                MessageBox.Show("Error en el campo Telefono.", "Ingrese un Telefono valido", MessageBoxButtons.OK);
+                MessageBox.Show("El campo Teléfono está incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtRncC.Text))
+
+            if (!txtRncC.MaskCompleted)
             {
-                MessageBox.Show("Error en el campo RNC.", "Ingrese un RNC valido", MessageBoxButtons.OK);
+                MessageBox.Show("El campo RNC está incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -50,7 +53,6 @@ namespace Capa_Presentacion
                 if (!correo.Contains("@") || !correo.Contains("."))
                     throw new Exception("Formato de correo inválido." + "\nFavor usar una direccion de correo valida: username@ejemplo.com");
 
-                // También podrías aplicar aquí una función de regex si quieres más precisión
             }
             catch (Exception ex)
             {
@@ -58,14 +60,14 @@ namespace Capa_Presentacion
 
                 return;
             }
-            CNCliente cliente = new CNCliente(txtNombreC.Text.Trim(), txtTelefC.Text.Trim(), txtRncC.Text.Trim()) { Correo = txtCorreoC.Text.Trim() };
+            CNCliente cliente = new CNCliente(txtNombreC.Text.Trim(), txtTelefC.Text.Trim(), txtRncC.Text.Trim(), txtCorreoC.Text.Trim());
 
             CNClienteDal datos = new CNClienteDal();
             int resultado;
 
             if (idClienteEditando != null)
             {
-                // Modo edición
+                //TODO Modo edición
                 cliente.IdCliente = idClienteEditando.Value;
                 resultado = datos.EditarCliente(cliente);
 
@@ -100,10 +102,10 @@ namespace Capa_Presentacion
             }
 
             // Refrescar, limpiar y reiniciar
-            Mclientes();      // Recargar tabla
-            LimpiarCampos();  // Limpiar campos
+            Mclientes();
+            LimpiarCampos();
         }
-        // LimpiarCampos();
+
 
 
 
@@ -230,6 +232,57 @@ namespace Capa_Presentacion
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnBuscarC_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtIdClienteC.Text, out int id))
+            {
+                MessageBox.Show("Por favor ingrese un Id de factura válido.");
+                return;
+            }
+
+            CNCliente cliente = CNClienteDal.BuscarPorId(id);
+
+            if (cliente != null)
+            {
+                dgvClientes.DataSource = new[]
+                {
+                    new
+                    {
+
+                        cliente.IdCliente,
+                        cliente.Nombre,
+                        cliente.Telefono,
+                        cliente.RNC,
+                        cliente.Correo
+                    }
+                };
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("No se encontró ninguna factura con ese Id.");
+            }
+            btnBuscarC2.Show();
+            lblIdC.Hide();
+            txtIdClienteC.Hide();
+            pbAtras.Show();
+        }
+
+        private void btnBuscarC2_Click(object sender, EventArgs e)
+        {
+            btnBuscarC2.Hide();
+            lblIdC.Show();
+            txtIdClienteC.Show();
+        }
+
+        private void pbAtras_Click(object sender, EventArgs e)
+        {
+            Mclientes();
+            pbAtras.Hide();
         }
     }
 

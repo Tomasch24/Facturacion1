@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Capa_negocios
 {
+    //TODO clase encargada de los metodos que interactuan con la base de datos y la tabla factura
     public class FacturaDal
     {
         //TODO Metodo para ingresar los datos de la factura
@@ -45,6 +46,8 @@ namespace Capa_negocios
             }
             return retorna;
         }
+
+        //TODO metodo buscar factura por id
         public static Factura BuscarFacturaPorId(int idFactura)
         {
             FacturaDatos data = new FacturaDatos();
@@ -77,6 +80,8 @@ namespace Capa_negocios
 
                     factura.IdFactura = idFactura;
                     factura.NombreFactura = reader["Nombre"].ToString(); // ← directamente desde la tabla Factura
+                    factura.TelefonoF = reader["Telefono"].ToString();
+                    factura.RncF = reader["RNC"].ToString();
                     factura.Descripcion = reader["Descripcion"].ToString();
                     factura.Precio = Convert.ToDecimal(reader["Precio"]);
                     factura.Cantidad = Convert.ToInt32(reader["Cantidad"]);
@@ -118,7 +123,8 @@ namespace Capa_negocios
                         cliente = new CNCliente(
                             reader["Nombre"].ToString(),
                             reader["Telefono"].ToString(),
-                            reader["RNC"].ToString()
+                            reader["RNC"].ToString(),
+                            ""
                         );
                     }
 
@@ -127,6 +133,8 @@ namespace Capa_negocios
                         : new FacturaCredito(cliente);
 
                     factura.IdFactura = Convert.ToInt32(reader["IdFactura"]);
+                    factura.TelefonoF = reader["Telefono"].ToString();
+                    factura.RncF = reader["RNC"].ToString();
                     factura.Descripcion = reader["Descripcion"].ToString();
                     factura.Precio = Convert.ToDecimal(reader["Precio"]);
                     factura.Cantidad = Convert.ToInt32(reader["Cantidad"]);

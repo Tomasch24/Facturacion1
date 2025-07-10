@@ -70,13 +70,15 @@ namespace Capa_negocios
                     CNCliente cliente = new CNCliente(
                     reader["Nombre"].ToString(),
                     reader["Telefono"].ToString(),
-                   reader["RNC"].ToString());    
+                   reader["RNC"].ToString(),
+                   reader["Correo"].ToString());    
 
                     //Se asignan valores desde la base de datos a los atributos de clase
                     cliente.IdCliente = (int)reader["IdCliente"];
                     cliente.Nombre = reader["Nombre"].ToString();
                     cliente.Telefono = reader["Telefono"].ToString();
-                    cliente.RNC = reader["RNC"].ToString(); ;
+                    cliente.RNC = reader["RNC"].ToString();
+                    cliente.Correo = reader["Correo"].ToString() ;
 
                     return cliente; //Devuelve la persona encontrada
                 }
@@ -105,7 +107,8 @@ namespace Capa_negocios
                 CNCliente cliente = new CNCliente(
                     reader["Nombre"].ToString(),
                     reader["Telefono"].ToString(),
-                    reader["RNC"].ToString()
+                    reader["RNC"].ToString(),
+                    reader["Correo"].ToString()
                 )
                 {
                     IdCliente = Convert.ToInt32(reader["IdCliente"]),
@@ -136,7 +139,7 @@ namespace Capa_negocios
                     cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
                     cmd.Parameters.AddWithValue("@RNC", cliente.RNC);
                     cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                    cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+                    cmd.Parameters.AddWithValue("@Correo", cliente.Correo ?? (object)DBNull.Value);
 
                     resultado = cmd.ExecuteNonQuery(); 
                 }

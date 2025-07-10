@@ -16,7 +16,7 @@ namespace Capa_negocios
         public string Correo { get; set; }
 
         //TODO Constructor CNCliente
-        public CNCliente(string nombre, string telefono, string rnc)
+        public CNCliente(string nombre, string telefono, string rnc, string correo)
             : base(nombre, telefono, rnc)
         {
             Descuento = 5;

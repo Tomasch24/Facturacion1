@@ -45,7 +45,7 @@
             txtCliente = new TextBox();
             txtDescripcion = new TextBox();
             dtpFecha = new DateTimePicker();
-            button1 = new Button();
+            btnGuardar = new Button();
             cbTipo = new ComboBox();
             facturaDalBindingSource = new BindingSource(components);
             dgvFactura = new DataGridView();
@@ -55,20 +55,25 @@
             txtPrecio = new TextBox();
             txtCantidad = new NumericUpDown();
             btnAgregar = new Button();
-            btnEdit = new Button();
+            btnBuscarC = new Button();
             lblId = new Label();
             txtIdCliente = new TextBox();
             panel1 = new Panel();
+            txtCorreo = new TextBox();
+            btnBuscarC2 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             btnVolver = new Button();
-            button2 = new Button();
+            btnBuscarF2 = new Button();
+            btnBuscarF = new Button();
+            pbAtras = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)facturaDalBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAtras).BeginInit();
             SuspendLayout();
             // 
             // lblCliente
@@ -205,25 +210,25 @@
             dtpFecha.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(164, 277);
-            dtpFecha.MaxDate = new DateTime(2025, 7, 9, 0, 0, 0, 0);
-            dtpFecha.MinDate = new DateTime(2025, 7, 9, 0, 0, 0, 0);
+            dtpFecha.MaxDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
+            dtpFecha.MinDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(318, 28);
             dtpFecha.TabIndex = 5;
-            dtpFecha.Value = new DateTime(2025, 7, 9, 0, 0, 0, 0);
+            dtpFecha.Value = new DateTime(2025, 7, 10, 0, 0, 0, 0);
             // 
-            // button1
+            // btnGuardar
             // 
-            button1.BackColor = Color.Gainsboro;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(327, 659);
-            button1.Name = "button1";
-            button1.Size = new Size(155, 52);
-            button1.TabIndex = 9;
-            button1.Text = "Guardar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnGuardar.BackColor = Color.Gainsboro;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.Location = new Point(327, 659);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(155, 52);
+            btnGuardar.TabIndex = 9;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += button1_Click;
             // 
             // cbTipo
             // 
@@ -243,6 +248,7 @@
             dgvFactura.AllowUserToResizeRows = false;
             dgvFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFactura.CellBorderStyle = DataGridViewCellBorderStyle.RaisedVertical;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.SkyBlue;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -316,6 +322,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(318, 28);
             txtPrecio.TabIndex = 7;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // txtCantidad
             // 
@@ -339,18 +346,18 @@
             btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += button2_Click;
             // 
-            // btnEdit
+            // btnBuscarC
             // 
-            btnEdit.BackColor = Color.Gainsboro;
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(62, 659);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(230, 52);
-            btnEdit.TabIndex = 102;
-            btnEdit.Text = "Buscar IdCliente";
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
+            btnBuscarC.BackColor = Color.Aquamarine;
+            btnBuscarC.FlatStyle = FlatStyle.Flat;
+            btnBuscarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarC.Location = new Point(62, 659);
+            btnBuscarC.Name = "btnBuscarC";
+            btnBuscarC.Size = new Size(230, 52);
+            btnBuscarC.TabIndex = 102;
+            btnBuscarC.Text = "Buscar IdCliente";
+            btnBuscarC.UseVisualStyleBackColor = false;
+            btnBuscarC.Click += btnEdit_Click;
             // 
             // lblId
             // 
@@ -370,14 +377,17 @@
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.Size = new Size(318, 31);
             txtIdCliente.TabIndex = 1;
+            txtIdCliente.KeyPress += txtIdCliente_KeyPress;
             // 
             // panel1
             // 
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.FromArgb(46, 58, 89);
+            panel1.Controls.Add(txtCorreo);
+            panel1.Controls.Add(btnBuscarC2);
             panel1.Controls.Add(lblId);
             panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(btnEdit);
+            panel1.Controls.Add(btnBuscarC);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(lblSistema);
             panel1.Controls.Add(lblCantidad);
@@ -389,6 +399,27 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(539, 834);
             panel1.TabIndex = 107;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(170, 324);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(150, 31);
+            txtCorreo.TabIndex = 112;
+            txtCorreo.Visible = false;
+            // 
+            // btnBuscarC2
+            // 
+            btnBuscarC2.BackColor = Color.Gainsboro;
+            btnBuscarC2.FlatStyle = FlatStyle.Flat;
+            btnBuscarC2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarC2.Location = new Point(62, 659);
+            btnBuscarC2.Name = "btnBuscarC2";
+            btnBuscarC2.Size = new Size(230, 52);
+            btnBuscarC2.TabIndex = 111;
+            btnBuscarC2.Text = "Buscar IdCliente";
+            btnBuscarC2.UseVisualStyleBackColor = false;
+            btnBuscarC2.Click += button3_Click;
             // 
             // pictureBox2
             // 
@@ -424,19 +455,45 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // button2
+            // btnBuscarF2
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.BackColor = Color.Gainsboro;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(1483, 722);
-            button2.Name = "button2";
-            button2.Size = new Size(289, 52);
-            button2.TabIndex = 109;
-            button2.Text = "Buscar IdFactura";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
+            btnBuscarF2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnBuscarF2.BackColor = Color.Aquamarine;
+            btnBuscarF2.FlatStyle = FlatStyle.Flat;
+            btnBuscarF2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarF2.Location = new Point(1483, 722);
+            btnBuscarF2.Name = "btnBuscarF2";
+            btnBuscarF2.Size = new Size(289, 52);
+            btnBuscarF2.TabIndex = 109;
+            btnBuscarF2.Text = "Buscar IdFactura";
+            btnBuscarF2.UseVisualStyleBackColor = false;
+            btnBuscarF2.Click += button2_Click_1;
+            // 
+            // btnBuscarF
+            // 
+            btnBuscarF.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnBuscarF.BackColor = Color.Gainsboro;
+            btnBuscarF.FlatStyle = FlatStyle.Flat;
+            btnBuscarF.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarF.Location = new Point(1483, 722);
+            btnBuscarF.Name = "btnBuscarF";
+            btnBuscarF.Size = new Size(289, 52);
+            btnBuscarF.TabIndex = 110;
+            btnBuscarF.Text = "Buscar IdFactura";
+            btnBuscarF.UseVisualStyleBackColor = false;
+            btnBuscarF.Click += btnBuscarF_Click;
+            // 
+            // pbAtras
+            // 
+            pbAtras.Image = Capa_Presentacion.Properties.Resources.Flecha_hacia_atras;
+            pbAtras.Location = new Point(577, 40);
+            pbAtras.Name = "pbAtras";
+            pbAtras.Size = new Size(52, 48);
+            pbAtras.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAtras.TabIndex = 111;
+            pbAtras.TabStop = false;
+            pbAtras.Visible = false;
+            pbAtras.Click += pbAtras_Click;
             // 
             // Facturacion
             // 
@@ -444,7 +501,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(1794, 834);
-            Controls.Add(button2);
+            Controls.Add(pbAtras);
+            Controls.Add(btnBuscarF);
+            Controls.Add(btnBuscarF2);
             Controls.Add(btnVolver);
             Controls.Add(txtIdCliente);
             Controls.Add(btnAgregar);
@@ -454,7 +513,7 @@
             Controls.Add(label1);
             Controls.Add(dgvFactura);
             Controls.Add(cbTipo);
-            Controls.Add(button1);
+            Controls.Add(btnGuardar);
             Controls.Add(dtpFecha);
             Controls.Add(txtPrecio);
             Controls.Add(txtDescripcion);
@@ -478,6 +537,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAtras).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -496,7 +556,7 @@
         private TextBox txtTelef;
         private TextBox txtDescripcion;
         private DateTimePicker dtpFecha;
-        private Button button1;
+        private Button btnGuardar;
         private ComboBox cbTipo;
         private BindingSource facturaDalBindingSource;
         private DataGridView dgvFactura;
@@ -506,13 +566,17 @@
         private TextBox txtPrecio;
         private NumericUpDown txtCantidad;
         private Button btnAgregar;
-        private Button btnEdit;
+        private Button btnBuscarC;
         private Label lblId;
         private TextBox txtIdCliente;
         private Panel panel1;
         private Button btnVolver;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Button button2;
+        private Button btnBuscarF2;
+        private Button btnBuscarC2;
+        private Button btnBuscarF;
+        private PictureBox pbAtras;
+        private TextBox txtCorreo;
     }
 }
