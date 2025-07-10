@@ -73,7 +73,7 @@ namespace capa_presentacion
             }
             else
             {
-                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text,"");
+                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, "");
             }
 
 
@@ -93,7 +93,7 @@ namespace capa_presentacion
 
             if (result > 0)
             {
-                MessageBox.Show("Exito al guardar datos de factura","Factura guardada con Exito", MessageBoxButtons.OK);
+                MessageBox.Show("Exito al guardar datos de factura", "Factura guardada con Exito", MessageBoxButtons.OK);
 
 
                 GenerarFactura();

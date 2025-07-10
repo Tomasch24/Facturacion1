@@ -45,12 +45,12 @@ namespace Capa_Presentacion
             }
             try
             {
-                string correo = txtCorreoC.Text.Trim();
+                 
 
-                if (string.IsNullOrWhiteSpace(correo))
+                if (string.IsNullOrWhiteSpace(txtCorreoC.Text))
                     throw new Exception("El campo de correo está vacío.");
 
-                if (!correo.Contains("@") || !correo.Contains("."))
+                if (!txtCorreoC.Text.Contains("@") || !txtCorreoC.Text.Contains("."))
                     throw new Exception("Formato de correo inválido." + "\nFavor usar una direccion de correo valida: username@ejemplo.com");
 
             }
@@ -61,6 +61,9 @@ namespace Capa_Presentacion
                 return;
             }
             CNCliente cliente = new CNCliente(txtNombreC.Text.Trim(), txtTelefC.Text.Trim(), txtRncC.Text.Trim(), txtCorreoC.Text.Trim());
+
+            cliente.Correo = txtCorreoC.Text.Trim();
+            
 
             CNClienteDal datos = new CNClienteDal();
             int resultado;
