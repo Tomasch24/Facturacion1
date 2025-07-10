@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Capa_negocios
 {
-    //TODO Clase CNClienteDal de gestionar los metodos relacionado a los datos de los clientes en la base de datos
+    //TODO Clase CNClienteDal encargada de gestionar los metodos relacionado a los datos de los clientes en la base de datos
     public class CNClienteDal 
     {
         //TODO metodo para insertar clientes a la base de datos
@@ -20,7 +20,7 @@ namespace Capa_negocios
             //Se abre la conexion
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
-                // se abre la base de datos
+                //abre la conexion a la base de datos
                 conn.Open();
 
                 // TODO comando sql para que se guarden los datos del cliente en la base de datos

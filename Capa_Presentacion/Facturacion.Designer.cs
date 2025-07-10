@@ -59,7 +59,6 @@
             lblId = new Label();
             txtIdCliente = new TextBox();
             panel1 = new Panel();
-            txtCorreo = new TextBox();
             btnBuscarC2 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -248,7 +247,6 @@
             dgvFactura.AllowUserToResizeRows = false;
             dgvFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFactura.CellBorderStyle = DataGridViewCellBorderStyle.RaisedVertical;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.SkyBlue;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -383,7 +381,6 @@
             // 
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.FromArgb(46, 58, 89);
-            panel1.Controls.Add(txtCorreo);
             panel1.Controls.Add(btnBuscarC2);
             panel1.Controls.Add(lblId);
             panel1.Controls.Add(pictureBox2);
@@ -399,14 +396,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(539, 834);
             panel1.TabIndex = 107;
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.Location = new Point(170, 324);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(150, 31);
-            txtCorreo.TabIndex = 112;
-            txtCorreo.Visible = false;
             // 
             // btnBuscarC2
             // 
@@ -577,6 +566,5 @@
         private Button btnBuscarC2;
         private Button btnBuscarF;
         private PictureBox pbAtras;
-        private TextBox txtCorreo;
     }
 }

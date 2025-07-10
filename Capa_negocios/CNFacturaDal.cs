@@ -79,9 +79,9 @@ namespace Capa_negocios
                         : new FacturaCredito(cliente);
 
                     factura.IdFactura = idFactura;
-                    factura.NombreFactura = reader["Nombre"].ToString(); // ← directamente desde la tabla Factura
-                    factura.TelefonoF = reader["Telefono"].ToString();
-                    factura.RncF = reader["RNC"].ToString();
+                    factura.NombreFactura = reader["Nombre"].ToString(); //Desde la tabla Factura
+                    factura.TelefonoF = reader["Telefono"].ToString();//Desde la tabla Factura
+                    factura.RncF = reader["RNC"].ToString();//Desde la tabla Factura
                     factura.Descripcion = reader["Descripcion"].ToString();
                     factura.Precio = Convert.ToDecimal(reader["Precio"]);
                     factura.Cantidad = Convert.ToInt32(reader["Cantidad"]);
@@ -93,8 +93,8 @@ namespace Capa_negocios
                     return factura;
                 }
             }
-
-            return null; // Si no se encuentra
+            // Si no se encuentra
+            return null; 
         }
         //TODO Lista para mostrar clientes en el datagridview
         public static List<Factura> GenerarFacturas()

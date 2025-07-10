@@ -29,7 +29,7 @@ namespace capa_presentacion
         private void button1_Click(object sender, EventArgs e)
         {
 
-            // Validaciones
+            //TODO Capturas de error de los textbox
             if (string.IsNullOrWhiteSpace(txtCliente.Text))
             {
                 MessageBox.Show("El campo Cliente esta incompleto.", "Favor completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -73,7 +73,7 @@ namespace capa_presentacion
             }
             else
             {
-                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text, txtCorreo.Text);
+                cliente = new CNCliente(txtCliente.Text, txtTelef1.Text, txtRnc.Text,"");
             }
 
 
@@ -277,6 +277,7 @@ namespace capa_presentacion
             lblId.Show();
         }
 
+        //TODO evento KeyPress encargado de que nose puedan colocar letras en el precio
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
