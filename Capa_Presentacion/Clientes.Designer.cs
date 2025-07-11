@@ -92,7 +92,7 @@
             txtCorreoC.Location = new Point(128, 352);
             txtCorreoC.Name = "txtCorreoC";
             txtCorreoC.Size = new Size(210, 31);
-            txtCorreoC.TabIndex = 114;
+            txtCorreoC.TabIndex = 5;
             // 
             // btnBuscarC2
             // 
@@ -103,7 +103,7 @@
             btnBuscarC2.Location = new Point(84, 440);
             btnBuscarC2.Name = "btnBuscarC2";
             btnBuscarC2.Size = new Size(230, 52);
-            btnBuscarC2.TabIndex = 112;
+            btnBuscarC2.TabIndex = 6;
             btnBuscarC2.Text = "Buscar IdCliente";
             btnBuscarC2.UseVisualStyleBackColor = false;
             btnBuscarC2.Click += btnBuscarC2_Click;
@@ -117,6 +117,7 @@
             btnBuscarC.Name = "btnBuscarC";
             btnBuscarC.Size = new Size(230, 52);
             btnBuscarC.TabIndex = 113;
+            btnBuscarC.TabStop = false;
             btnBuscarC.Text = "Buscar IdCliente";
             btnBuscarC.UseVisualStyleBackColor = false;
             btnBuscarC.Click += btnBuscarC_Click;
@@ -138,7 +139,7 @@
             txtIdClienteC.Location = new Point(128, 112);
             txtIdClienteC.Name = "txtIdClienteC";
             txtIdClienteC.Size = new Size(210, 31);
-            txtIdClienteC.TabIndex = 17;
+            txtIdClienteC.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -161,7 +162,7 @@
             btnEditar.Location = new Point(84, 508);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(230, 44);
-            btnEditar.TabIndex = 13;
+            btnEditar.TabIndex = 7;
             btnEditar.Text = "Editar Cliente";
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
@@ -181,7 +182,7 @@
             txtRncC.Mask = "000-0000000-0";
             txtRncC.Name = "txtRncC";
             txtRncC.Size = new Size(210, 31);
-            txtRncC.TabIndex = 12;
+            txtRncC.TabIndex = 4;
             // 
             // txtTelefC
             // 
@@ -189,7 +190,7 @@
             txtTelefC.Mask = "+1 (999) 000-0000";
             txtTelefC.Name = "txtTelefC";
             txtTelefC.Size = new Size(210, 31);
-            txtTelefC.TabIndex = 11;
+            txtTelefC.TabIndex = 3;
             // 
             // btnGuardarC
             // 
@@ -200,7 +201,7 @@
             btnGuardarC.Location = new Point(84, 572);
             btnGuardarC.Name = "btnGuardarC";
             btnGuardarC.Size = new Size(230, 52);
-            btnGuardarC.TabIndex = 10;
+            btnGuardarC.TabIndex = 8;
             btnGuardarC.Text = "Guardar";
             btnGuardarC.UseVisualStyleBackColor = false;
             btnGuardarC.Click += btnGuardarC_Click;
@@ -210,7 +211,7 @@
             txtNombreC.Location = new Point(128, 166);
             txtNombreC.Name = "txtNombreC";
             txtNombreC.Size = new Size(210, 31);
-            txtNombreC.TabIndex = 5;
+            txtNombreC.TabIndex = 2;
             txtNombreC.KeyPress += txtNombreC_KeyPress;
             // 
             // lblCorreoC
@@ -278,7 +279,7 @@
             btnVolverC.Location = new Point(494, 654);
             btnVolverC.Name = "btnVolverC";
             btnVolverC.Size = new Size(233, 44);
-            btnVolverC.TabIndex = 14;
+            btnVolverC.TabIndex = 9;
             btnVolverC.Text = "Volver al Menu";
             btnVolverC.UseVisualStyleBackColor = false;
             btnVolverC.Click += btnVolverC_Click;
@@ -318,6 +319,7 @@
             dgvClientes.RowHeadersWidth = 62;
             dgvClientes.Size = new Size(1018, 534);
             dgvClientes.TabIndex = 1;
+            dgvClientes.TabStop = false;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // btnEliminar
@@ -331,7 +333,7 @@
             btnEliminar.Location = new Point(1275, 654);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(237, 44);
-            btnEliminar.TabIndex = 15;
+            btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar Cliente";
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
@@ -346,7 +348,7 @@
             button1.Location = new Point(897, 654);
             button1.Name = "button1";
             button1.Size = new Size(233, 44);
-            button1.TabIndex = 16;
+            button1.TabIndex = 10;
             button1.Text = "Venta";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;

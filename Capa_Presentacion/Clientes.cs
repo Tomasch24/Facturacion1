@@ -285,6 +285,7 @@ namespace Capa_Presentacion
             btnBuscarC2.Hide();
             lblIdC.Show();
             txtIdClienteC.Show();
+            txtIdClienteC.Text = "";
         }
 
         private void pbAtras_Click(object sender, EventArgs e)

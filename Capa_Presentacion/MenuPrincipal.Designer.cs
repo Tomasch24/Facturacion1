@@ -80,7 +80,7 @@
             btnEmpleados.Location = new Point(0, 372);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Size = new Size(350, 70);
-            btnEmpleados.TabIndex = 4;
+            btnEmpleados.TabIndex = 3;
             btnEmpleados.Text = "Coming Soon";
             btnEmpleados.UseVisualStyleBackColor = false;
             btnEmpleados.Click += btnEmpleados_Click;
@@ -99,7 +99,7 @@
             btnClientes.Location = new Point(0, 269);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(350, 70);
-            btnClientes.TabIndex = 3;
+            btnClientes.TabIndex = 2;
             btnClientes.Text = "Clientes";
             btnClientes.UseVisualStyleBackColor = false;
             btnClientes.Click += btnClientes_Click;
@@ -118,7 +118,7 @@
             btnVentas.Location = new Point(0, 162);
             btnVentas.Name = "btnVentas";
             btnVentas.Size = new Size(350, 70);
-            btnVentas.TabIndex = 2;
+            btnVentas.TabIndex = 1;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = false;
             btnVentas.Click += btnVentas_Click;

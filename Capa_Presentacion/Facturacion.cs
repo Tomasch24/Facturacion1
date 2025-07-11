@@ -268,6 +268,7 @@ namespace capa_presentacion
             btnBuscarC2.Hide();
             txtIdCliente.Show();
             lblId.Show();
+            txtIdCliente.Text = "";
             btnBuscarF.Show();
             
         }
@@ -277,6 +278,7 @@ namespace capa_presentacion
             btnBuscarF.Hide();
             txtIdCliente.Show();
             lblId.Show();
+            txtIdCliente.Text = "";
             btnBuscarC2.Show();
         }
 
