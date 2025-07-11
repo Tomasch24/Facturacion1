@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             lblCliente = new Label();
             lblTelef = new Label();
             lblRnc = new Label();
@@ -80,11 +80,11 @@
             lblCliente.AutoSize = true;
             lblCliente.BackColor = Color.FromArgb(46, 58, 89);
             lblCliente.FlatStyle = FlatStyle.Flat;
-            lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCliente.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCliente.ForeColor = SystemColors.ControlLightLight;
-            lblCliente.Location = new Point(30, 128);
+            lblCliente.Location = new Point(32, 123);
             lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(81, 27);
+            lblCliente.Size = new Size(89, 32);
             lblCliente.TabIndex = 1;
             lblCliente.Text = "Cliente";
             // 
@@ -92,11 +92,11 @@
             // 
             lblTelef.AutoSize = true;
             lblTelef.BackColor = Color.FromArgb(46, 58, 89);
-            lblTelef.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTelef.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelef.ForeColor = SystemColors.ControlLightLight;
-            lblTelef.Location = new Point(29, 172);
+            lblTelef.Location = new Point(32, 167);
             lblTelef.Name = "lblTelef";
-            lblTelef.Size = new Size(96, 27);
+            lblTelef.Size = new Size(107, 32);
             lblTelef.TabIndex = 100;
             lblTelef.Text = "Telefono";
             // 
@@ -104,11 +104,11 @@
             // 
             lblRnc.AutoSize = true;
             lblRnc.BackColor = Color.FromArgb(46, 58, 89);
-            lblRnc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRnc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRnc.ForeColor = SystemColors.ControlLightLight;
-            lblRnc.Location = new Point(30, 222);
+            lblRnc.Location = new Point(32, 217);
             lblRnc.Name = "lblRnc";
-            lblRnc.Size = new Size(61, 27);
+            lblRnc.Size = new Size(61, 32);
             lblRnc.TabIndex = 3;
             lblRnc.Text = "RNC";
             // 
@@ -116,11 +116,11 @@
             // 
             lblDescripcion.AutoSize = true;
             lblDescripcion.BackColor = Color.FromArgb(46, 58, 89);
-            lblDescripcion.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDescripcion.Font = new Font("Times New Roman", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDescripcion.ForeColor = SystemColors.ControlLightLight;
-            lblDescripcion.Location = new Point(30, 366);
+            lblDescripcion.Location = new Point(14, 351);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(262, 32);
+            lblDescripcion.Size = new Size(299, 36);
             lblDescripcion.TabIndex = 4;
             lblDescripcion.Text = "Descripcion de venta";
             // 
@@ -128,11 +128,11 @@
             // 
             lblPrecio.AutoSize = true;
             lblPrecio.BackColor = Color.FromArgb(46, 58, 89);
-            lblPrecio.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPrecio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPrecio.ForeColor = SystemColors.ControlLightLight;
-            lblPrecio.Location = new Point(29, 497);
+            lblPrecio.Location = new Point(32, 489);
             lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(74, 27);
+            lblPrecio.Size = new Size(79, 32);
             lblPrecio.TabIndex = 5;
             lblPrecio.Text = "Precio";
             // 
@@ -140,11 +140,11 @@
             // 
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.Transparent;
-            lblCantidad.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCantidad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCantidad.ForeColor = SystemColors.ControlLightLight;
-            lblCantidad.Location = new Point(30, 538);
+            lblCantidad.Location = new Point(32, 533);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(99, 27);
+            lblCantidad.Size = new Size(109, 32);
             lblCantidad.TabIndex = 6;
             lblCantidad.Text = "Cantidad";
             // 
@@ -152,11 +152,11 @@
             // 
             lblTipo.AutoSize = true;
             lblTipo.BackColor = Color.FromArgb(46, 58, 89);
-            lblTipo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTipo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTipo.ForeColor = SystemColors.ControlLightLight;
-            lblTipo.Location = new Point(29, 586);
+            lblTipo.Location = new Point(32, 580);
             lblTipo.Name = "lblTipo";
-            lblTipo.Size = new Size(55, 27);
+            lblTipo.Size = new Size(61, 32);
             lblTipo.TabIndex = 8;
             lblTipo.Text = "Tipo";
             // 
@@ -164,11 +164,11 @@
             // 
             label9.AutoSize = true;
             label9.BackColor = Color.FromArgb(46, 58, 89);
-            label9.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = SystemColors.ControlLightLight;
-            label9.Location = new Point(29, 277);
+            label9.Location = new Point(32, 277);
             label9.Name = "label9";
-            label9.Size = new Size(70, 27);
+            label9.Size = new Size(76, 32);
             label9.TabIndex = 9;
             label9.Text = "Fecha";
             // 
@@ -187,7 +187,7 @@
             // txtCliente
             // 
             txtCliente.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCliente.Location = new Point(164, 127);
+            txtCliente.Location = new Point(175, 127);
             txtCliente.MaxLength = 20;
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(318, 28);
@@ -197,7 +197,7 @@
             // txtDescripcion
             // 
             txtDescripcion.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDescripcion.Location = new Point(164, 430);
+            txtDescripcion.Location = new Point(175, 429);
             txtDescripcion.MaxLength = 50;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(318, 28);
@@ -208,7 +208,7 @@
             dtpFecha.CustomFormat = "dd/mm/aaaa";
             dtpFecha.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(164, 277);
+            dtpFecha.Location = new Point(175, 277);
             dtpFecha.MaxDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
             dtpFecha.MinDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
@@ -234,7 +234,7 @@
             cbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipo.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbTipo.FormattingEnabled = true;
-            cbTipo.Location = new Point(164, 584);
+            cbTipo.Location = new Point(175, 584);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(318, 28);
             cbTipo.TabIndex = 9;
@@ -247,38 +247,38 @@
             dgvFactura.AllowUserToResizeRows = false;
             dgvFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.SkyBlue;
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvFactura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle9.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvFactura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvFactura.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dgvFactura.DefaultCellStyle = dataGridViewCellStyle10;
             dgvFactura.EnableHeadersVisualStyles = false;
             dgvFactura.Location = new Point(577, 94);
             dgvFactura.Name = "dgvFactura";
             dgvFactura.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvFactura.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dgvFactura.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dgvFactura.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dgvFactura.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dgvFactura.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dgvFactura.Size = new Size(1195, 593);
             dgvFactura.TabIndex = 0;
             dgvFactura.TabStop = false;
@@ -287,18 +287,18 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(46, 58, 89);
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(29, 420);
+            label1.Location = new Point(32, 409);
             label1.Name = "label1";
-            label1.Size = new Size(129, 54);
+            label1.Size = new Size(132, 64);
             label1.TabIndex = 27;
-            label1.Text = "Referencia \r\nde Producto\r\n";
+            label1.Text = "Referencia \r\nProducto\r\n";
             // 
             // txtTelef1
             // 
             txtTelef1.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTelef1.Location = new Point(164, 169);
+            txtTelef1.Location = new Point(175, 167);
             txtTelef1.Mask = "+1 (999) 000-0000";
             txtTelef1.Name = "txtTelef1";
             txtTelef1.Size = new Size(318, 30);
@@ -307,7 +307,7 @@
             // txtRnc
             // 
             txtRnc.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRnc.Location = new Point(164, 221);
+            txtRnc.Location = new Point(175, 221);
             txtRnc.Mask = "000-0000000-0";
             txtRnc.Name = "txtRnc";
             txtRnc.Size = new Size(318, 28);
@@ -316,7 +316,7 @@
             // txtPrecio
             // 
             txtPrecio.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPrecio.Location = new Point(164, 493);
+            txtPrecio.Location = new Point(175, 493);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(318, 28);
             txtPrecio.TabIndex = 7;
@@ -324,7 +324,7 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(164, 534);
+            txtCantidad.Location = new Point(175, 534);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(318, 31);
             txtCantidad.TabIndex = 8;
@@ -361,17 +361,17 @@
             // 
             lblId.AutoSize = true;
             lblId.BackColor = Color.FromArgb(46, 58, 89);
-            lblId.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblId.ForeColor = SystemColors.ControlLightLight;
-            lblId.Location = new Point(30, 83);
+            lblId.Location = new Point(32, 78);
             lblId.Name = "lblId";
-            lblId.Size = new Size(32, 27);
+            lblId.Size = new Size(34, 32);
             lblId.TabIndex = 105;
             lblId.Text = "Id";
             // 
             // txtIdCliente
             // 
-            txtIdCliente.Location = new Point(164, 79);
+            txtIdCliente.Location = new Point(175, 78);
             txtIdCliente.Name = "txtIdCliente";
             txtIdCliente.Size = new Size(318, 31);
             txtIdCliente.TabIndex = 1;
@@ -385,16 +385,30 @@
             panel1.Controls.Add(lblId);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(btnBuscarC);
+            panel1.Controls.Add(txtIdCliente);
+            panel1.Controls.Add(txtCantidad);
+            panel1.Controls.Add(cbTipo);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(lblSistema);
             panel1.Controls.Add(lblCantidad);
+            panel1.Controls.Add(txtTelef1);
+            panel1.Controls.Add(txtPrecio);
+            panel1.Controls.Add(txtRnc);
             panel1.Controls.Add(lblCliente);
             panel1.Controls.Add(lblTelef);
+            panel1.Controls.Add(txtCliente);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(lblRnc);
+            panel1.Controls.Add(lblDescripcion);
+            panel1.Controls.Add(dtpFecha);
+            panel1.Controls.Add(lblPrecio);
+            panel1.Controls.Add(lblTipo);
+            panel1.Controls.Add(txtDescripcion);
+            panel1.Controls.Add(label9);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(539, 834);
+            panel1.Size = new Size(551, 834);
             panel1.TabIndex = 107;
             // 
             // btnBuscarC2
@@ -494,23 +508,9 @@
             Controls.Add(btnBuscarF);
             Controls.Add(btnBuscarF2);
             Controls.Add(btnVolver);
-            Controls.Add(txtIdCliente);
             Controls.Add(btnAgregar);
-            Controls.Add(txtCantidad);
-            Controls.Add(txtRnc);
-            Controls.Add(txtTelef1);
-            Controls.Add(label1);
             Controls.Add(dgvFactura);
-            Controls.Add(cbTipo);
             Controls.Add(btnGuardar);
-            Controls.Add(dtpFecha);
-            Controls.Add(txtPrecio);
-            Controls.Add(txtDescripcion);
-            Controls.Add(txtCliente);
-            Controls.Add(label9);
-            Controls.Add(lblTipo);
-            Controls.Add(lblPrecio);
-            Controls.Add(lblDescripcion);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
@@ -528,7 +528,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAtras).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

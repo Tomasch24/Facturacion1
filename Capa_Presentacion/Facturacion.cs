@@ -105,7 +105,7 @@ namespace capa_presentacion
             }
 
             LimpiarCampos();
-
+            //txtCantidad.
             txtIdCliente.Hide();
             lblId.Hide();
             txtCliente.ReadOnly = false;

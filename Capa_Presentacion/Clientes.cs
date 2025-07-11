@@ -19,6 +19,7 @@ namespace Capa_Presentacion
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
             this.WindowState = FormWindowState.Maximized;
             Mclientes();
             txtCorreoC.MaxLength = 50;

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             btnBuscarC2 = new Button();
             btnBuscarC = new Button();
@@ -117,11 +117,11 @@
             // 
             lblIdC.AutoSize = true;
             lblIdC.BackColor = Color.FromArgb(46, 58, 89);
-            lblIdC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIdC.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblIdC.ForeColor = SystemColors.ControlLightLight;
-            lblIdC.Location = new Point(22, 116);
+            lblIdC.Location = new Point(10, 112);
             lblIdC.Name = "lblIdC";
-            lblIdC.Size = new Size(32, 27);
+            lblIdC.Size = new Size(34, 32);
             lblIdC.TabIndex = 106;
             lblIdC.Text = "Id";
             // 
@@ -213,44 +213,44 @@
             // lblCorreoC
             // 
             lblCorreoC.AutoSize = true;
-            lblCorreoC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCorreoC.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCorreoC.ForeColor = SystemColors.ControlLightLight;
-            lblCorreoC.Location = new Point(22, 355);
+            lblCorreoC.Location = new Point(10, 351);
             lblCorreoC.Name = "lblCorreoC";
-            lblCorreoC.Size = new Size(79, 27);
+            lblCorreoC.Size = new Size(86, 32);
             lblCorreoC.TabIndex = 4;
             lblCorreoC.Text = "Correo";
             // 
             // lblRncC
             // 
             lblRncC.AutoSize = true;
-            lblRncC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRncC.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRncC.ForeColor = SystemColors.ControlLightLight;
-            lblRncC.Location = new Point(22, 296);
+            lblRncC.Location = new Point(10, 292);
             lblRncC.Name = "lblRncC";
-            lblRncC.Size = new Size(61, 27);
+            lblRncC.Size = new Size(61, 32);
             lblRncC.TabIndex = 3;
             lblRncC.Text = "RNC";
             // 
             // lblTelef2
             // 
             lblTelef2.AutoSize = true;
-            lblTelef2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTelef2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelef2.ForeColor = SystemColors.ControlLightLight;
-            lblTelef2.Location = new Point(16, 237);
+            lblTelef2.Location = new Point(10, 233);
             lblTelef2.Name = "lblTelef2";
-            lblTelef2.Size = new Size(96, 27);
+            lblTelef2.Size = new Size(107, 32);
             lblTelef2.TabIndex = 2;
             lblTelef2.Text = "Telefono";
             // 
             // lblNombreC
             // 
             lblNombreC.AutoSize = true;
-            lblNombreC.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreC.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombreC.ForeColor = SystemColors.ControlLightLight;
-            lblNombreC.Location = new Point(22, 170);
+            lblNombreC.Location = new Point(10, 166);
             lblNombreC.Name = "lblNombreC";
-            lblNombreC.Size = new Size(90, 27);
+            lblNombreC.Size = new Size(102, 32);
             lblNombreC.TabIndex = 1;
             lblNombreC.Text = "Nombre";
             // 
@@ -283,33 +283,34 @@
             // 
             dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Aqua;
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Aqua;
+            dataGridViewCellStyle4.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvClientes.EnableHeadersVisualStyles = false;
             dgvClientes.Location = new Point(494, 78);
             dgvClientes.Name = "dgvClientes";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.SkyBlue;
-            dataGridViewCellStyle3.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle6.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvClientes.RowHeadersWidth = 62;
             dgvClientes.Size = new Size(1018, 534);
             dgvClientes.TabIndex = 1;
