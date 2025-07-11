@@ -87,7 +87,7 @@ namespace Capa_negocios
                     factura.Cantidad = Convert.ToInt32(reader["Cantidad"]);
                     factura.Fecha = Convert.ToDateTime(reader["Fecha"]);
 
-                    factura.AplicarDescuentoSiCorresponde();
+                    factura.AplicarDescuento();
                     factura.CalcularTotales();
 
                     return factura;
@@ -127,7 +127,6 @@ namespace Capa_negocios
                             ""
                         );
                     }
-
                     Factura factura = reader["Tipo"].ToString() == "Contado"
                         ? new FacturaContado(cliente)
                         : new FacturaCredito(cliente);
@@ -139,15 +138,13 @@ namespace Capa_negocios
                     factura.Precio = Convert.ToDecimal(reader["Precio"]);
                     factura.Cantidad = Convert.ToInt32(reader["Cantidad"]);
                     factura.Fecha = Convert.ToDateTime(reader["Fecha"]);
-                    factura.AplicarDescuentoSiCorresponde();
+                    factura.AplicarDescuento();
                     factura.CalcularTotales();
 
                     lista.Add(factura);
                 }
             }
-
             return lista;
         }
-
     }
 }

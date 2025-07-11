@@ -26,11 +26,14 @@ namespace capa_negocios
         public decimal Descuento { get;  set; }
         public decimal Total { get; set; }
 
+        //TODO constructor clase facrura
         public Factura(CNCliente cliente)
         {
             Cliente = cliente;
         }
-        public void AplicarDescuentoSiCorresponde()
+
+        //TODO metodo vacio para aplicarle descuento a clientes registrados
+        public void AplicarDescuento()
         {
             if (Cliente?.IdCliente > 0)
                 Descuento = SubTotal * 0.05m;

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            txtCorreoC = new TextBox();
             btnBuscarC2 = new Button();
             btnBuscarC = new Button();
             lblIdC = new Label();
@@ -42,7 +43,6 @@
             txtRncC = new MaskedTextBox();
             txtTelefC = new MaskedTextBox();
             btnGuardarC = new Button();
-            txtCorreoC = new TextBox();
             txtNombreC = new TextBox();
             lblCorreoC = new Label();
             lblRncC = new Label();
@@ -64,6 +64,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(46, 58, 89);
+            panel1.Controls.Add(txtCorreoC);
             panel1.Controls.Add(btnBuscarC2);
             panel1.Controls.Add(btnBuscarC);
             panel1.Controls.Add(lblIdC);
@@ -74,7 +75,6 @@
             panel1.Controls.Add(txtRncC);
             panel1.Controls.Add(txtTelefC);
             panel1.Controls.Add(btnGuardarC);
-            panel1.Controls.Add(txtCorreoC);
             panel1.Controls.Add(txtNombreC);
             panel1.Controls.Add(lblCorreoC);
             panel1.Controls.Add(lblRncC);
@@ -87,9 +87,17 @@
             panel1.Size = new Size(420, 768);
             panel1.TabIndex = 0;
             // 
+            // txtCorreoC
+            // 
+            txtCorreoC.Location = new Point(128, 352);
+            txtCorreoC.Name = "txtCorreoC";
+            txtCorreoC.Size = new Size(210, 31);
+            txtCorreoC.TabIndex = 114;
+            // 
             // btnBuscarC2
             // 
             btnBuscarC2.BackColor = Color.Gainsboro;
+            btnBuscarC2.Cursor = Cursors.Hand;
             btnBuscarC2.FlatStyle = FlatStyle.Flat;
             btnBuscarC2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarC2.Location = new Point(84, 440);
@@ -147,6 +155,7 @@
             // 
             btnEditar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEditar.BackColor = Color.Gainsboro;
+            btnEditar.Cursor = Cursors.Hand;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.Location = new Point(84, 508);
@@ -185,6 +194,7 @@
             // btnGuardarC
             // 
             btnGuardarC.BackColor = Color.Gainsboro;
+            btnGuardarC.Cursor = Cursors.Hand;
             btnGuardarC.FlatStyle = FlatStyle.Flat;
             btnGuardarC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardarC.Location = new Point(84, 572);
@@ -194,13 +204,6 @@
             btnGuardarC.Text = "Guardar";
             btnGuardarC.UseVisualStyleBackColor = false;
             btnGuardarC.Click += btnGuardarC_Click;
-            // 
-            // txtCorreoC
-            // 
-            txtCorreoC.Location = new Point(128, 351);
-            txtCorreoC.Name = "txtCorreoC";
-            txtCorreoC.Size = new Size(210, 31);
-            txtCorreoC.TabIndex = 8;
             // 
             // txtNombreC
             // 
@@ -269,6 +272,7 @@
             // 
             btnVolverC.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnVolverC.BackColor = Color.Gainsboro;
+            btnVolverC.Cursor = Cursors.Hand;
             btnVolverC.FlatStyle = FlatStyle.Flat;
             btnVolverC.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVolverC.Location = new Point(494, 654);
@@ -283,34 +287,34 @@
             // 
             dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Aqua;
-            dataGridViewCellStyle4.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Aqua;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvClientes.EnableHeadersVisualStyles = false;
             dgvClientes.Location = new Point(494, 78);
             dgvClientes.Name = "dgvClientes";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.SkyBlue;
-            dataGridViewCellStyle6.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvClientes.RowHeadersWidth = 62;
             dgvClientes.Size = new Size(1018, 534);
             dgvClientes.TabIndex = 1;
@@ -321,6 +325,7 @@
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEliminar.BackColor = Color.Gainsboro;
+            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.Location = new Point(1275, 654);
@@ -335,6 +340,7 @@
             // 
             button1.Anchor = AnchorStyles.Bottom;
             button1.BackColor = Color.Gainsboro;
+            button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.Location = new Point(897, 654);
@@ -347,6 +353,7 @@
             // 
             // pbAtras
             // 
+            pbAtras.Cursor = Cursors.Hand;
             pbAtras.Image = Properties.Resources.Flecha_hacia_atras;
             pbAtras.Location = new Point(494, 24);
             pbAtras.Name = "pbAtras";
@@ -391,7 +398,6 @@
         private Label lblTelef2;
         private Label lblNombreC;
         private Label label1;
-        private TextBox txtCorreoC;
         private Button btnGuardarC;
         private DataGridView dgvClientes;
         private MaskedTextBox txtRncC;
@@ -407,5 +413,6 @@
         private Button btnBuscarC2;
         private Button btnBuscarC;
         private PictureBox pbAtras;
+        private TextBox txtCorreoC;
     }
 }

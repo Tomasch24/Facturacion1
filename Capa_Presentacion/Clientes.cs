@@ -14,17 +14,19 @@ namespace Capa_Presentacion
             InitializeComponent();
             lblIdC.Hide();
             txtIdClienteC.Hide();
-            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aqua;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aquamarine;
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.Aqua;
             this.WindowState = FormWindowState.Maximized;
             Mclientes();
             txtCorreoC.MaxLength = 50;
             txtNombreC.MaxLength = 50;
         }
+
+        //TODO evento boton guardar cliente
 
         private void btnGuardarC_Click(object sender, EventArgs e)
         {
@@ -52,7 +54,7 @@ namespace Capa_Presentacion
                     throw new Exception("El campo de correo está vacío.");
 
                 if (!txtCorreoC.Text.Contains("@") || !txtCorreoC.Text.Contains("."))
-                    throw new Exception("Formato de correo inválido." + "\nFavor usar una direccion de correo valida: username@ejemplo.com");
+                    throw new Exception("Formato de correo inválido." + "\nFavor usar una direccion de correo valida: usuario@ejemplo.com");
 
             }
             catch (Exception ex)
@@ -137,6 +139,7 @@ namespace Capa_Presentacion
 
         }
         private int? idClienteEditando = null;
+        //TODO Evento para editar clientes
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvClientes.SelectedRows.Count == 0)
@@ -190,7 +193,7 @@ namespace Capa_Presentacion
             MP.BringToFront();
             this.Dispose();
         }
-
+        //TODO Evento boton Eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvClientes.SelectedRows.Count == 0)
@@ -237,7 +240,8 @@ namespace Capa_Presentacion
         {
 
         }
-
+        
+        //TODO Evento boton para buscar clientes por id
         private void btnBuscarC_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdClienteC.Text, out int id))

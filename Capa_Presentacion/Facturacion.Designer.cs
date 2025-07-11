@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblCliente = new Label();
             lblTelef = new Label();
             lblRnc = new Label();
@@ -209,8 +209,8 @@
             dtpFecha.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(175, 277);
-            dtpFecha.MaxDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
-            dtpFecha.MinDate = new DateTime(2025, 7, 10, 0, 0, 0, 0);
+            dtpFecha.MaxDate = new DateTime(7399, 7, 24, 0, 0, 0, 0);
+            dtpFecha.MinDate = new DateTime(2025, 7, 9, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(318, 28);
             dtpFecha.TabIndex = 5;
@@ -219,13 +219,14 @@
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.Gainsboro;
+            btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.Location = new Point(327, 659);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(155, 52);
             btnGuardar.TabIndex = 9;
-            btnGuardar.Text = "Guardar";
+            btnGuardar.Text = "Facturar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += button1_Click;
             // 
@@ -247,38 +248,38 @@
             dgvFactura.AllowUserToResizeRows = false;
             dgvFactura.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.SkyBlue;
-            dataGridViewCellStyle9.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvFactura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvFactura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvFactura.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFactura.DefaultCellStyle = dataGridViewCellStyle2;
             dgvFactura.EnableHeadersVisualStyles = false;
             dgvFactura.Location = new Point(577, 94);
             dgvFactura.Name = "dgvFactura";
             dgvFactura.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = Color.White;
-            dataGridViewCellStyle11.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgvFactura.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvFactura.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvFactura.RowHeadersWidth = 62;
-            dataGridViewCellStyle12.BackColor = Color.White;
-            dgvFactura.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dgvFactura.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvFactura.Size = new Size(1195, 593);
             dgvFactura.TabIndex = 0;
             dgvFactura.TabStop = false;
@@ -334,6 +335,7 @@
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom;
             btnAgregar.BackColor = Color.Gainsboro;
+            btnAgregar.Cursor = Cursors.Hand;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregar.Location = new Point(1061, 722);
@@ -414,6 +416,7 @@
             // btnBuscarC2
             // 
             btnBuscarC2.BackColor = Color.Gainsboro;
+            btnBuscarC2.Cursor = Cursors.Hand;
             btnBuscarC2.FlatStyle = FlatStyle.Flat;
             btnBuscarC2.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarC2.Location = new Point(62, 659);
@@ -448,6 +451,7 @@
             // 
             btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnVolver.BackColor = Color.Gainsboro;
+            btnVolver.Cursor = Cursors.Hand;
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVolver.Location = new Point(577, 722);
@@ -476,6 +480,7 @@
             // 
             btnBuscarF.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnBuscarF.BackColor = Color.Gainsboro;
+            btnBuscarF.Cursor = Cursors.Hand;
             btnBuscarF.FlatStyle = FlatStyle.Flat;
             btnBuscarF.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarF.Location = new Point(1483, 722);
@@ -488,6 +493,7 @@
             // 
             // pbAtras
             // 
+            pbAtras.Cursor = Cursors.Hand;
             pbAtras.Image = Capa_Presentacion.Properties.Resources.Flecha_hacia_atras;
             pbAtras.Location = new Point(577, 40);
             pbAtras.Name = "pbAtras";

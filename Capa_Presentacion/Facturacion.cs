@@ -25,7 +25,7 @@ namespace capa_presentacion
             txtPrecio.MaxLength = 6;
         }
 
-        //TODO Evento del boton guardar para insertar los datos a la base de datos
+        //TODO Evento del boton guardar para Facturar y guardar en la base de datos
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -84,7 +84,7 @@ namespace capa_presentacion
             factura.Descripcion = txtDescripcion.Text;
             factura.Precio = precio;
             factura.Cantidad = cantidad;
-            factura.AplicarDescuentoSiCorresponde();
+            factura.AplicarDescuento();
             factura.Fecha = dtpFecha.Value;
             factura.CalcularTotales();
 
@@ -105,7 +105,7 @@ namespace capa_presentacion
             }
 
             LimpiarCampos();
-            //txtCantidad.
+            txtCantidad.Value = 1;
             txtIdCliente.Hide();
             lblId.Hide();
             txtCliente.ReadOnly = false;
@@ -165,7 +165,7 @@ namespace capa_presentacion
             this.Dispose();
 
         }
-
+        //TODO Envento del boton para buscar clientes registrados por id
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdCliente.Text, out int idCliente))
@@ -209,7 +209,7 @@ namespace capa_presentacion
                 e.Handled = true; // Bloquear la tecla
             }
         }
-
+        //TODO Envento del boton para buscar Facturas por id
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (!int.TryParse(txtIdCliente.Text, out int id))
@@ -268,6 +268,8 @@ namespace capa_presentacion
             btnBuscarC2.Hide();
             txtIdCliente.Show();
             lblId.Show();
+            btnBuscarF.Show();
+            
         }
 
         private void btnBuscarF_Click(object sender, EventArgs e)
@@ -275,6 +277,7 @@ namespace capa_presentacion
             btnBuscarF.Hide();
             txtIdCliente.Show();
             lblId.Show();
+            btnBuscarC2.Show();
         }
 
         //TODO evento KeyPress encargado de que nose puedan colocar letras en el precio

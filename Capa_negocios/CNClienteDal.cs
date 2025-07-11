@@ -156,6 +156,13 @@ namespace Capa_negocios
             using (SqlConnection conn = new SqlConnection(data.conexion))
             {
                 conn.Open();
+                string queryU = "UPDATE Factura SET IdCliente = NULL WHERE IdCliente = @IdCliente";
+
+                using (SqlCommand updateCmd = new SqlCommand(queryU, conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                    updateCmd.ExecuteNonQuery();
+                }
 
                 //TODO comando SQL para eliminar clientes en la base de datos
                 string query = "DELETE FROM Cliente WHERE IdCliente = @IdCliente";

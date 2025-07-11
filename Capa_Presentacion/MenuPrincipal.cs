@@ -20,7 +20,6 @@ namespace Capa_Presentacion
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void pbMenu_Click(object sender, EventArgs e)
         {
             if (pnMenuV.Width == 80)
@@ -32,60 +31,45 @@ namespace Capa_Presentacion
                 pnMenuV.Width = 80;
             }
         }
-
         private void IconCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void iconMaximizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             iconRestaurar.Visible = true;
             iconMaximizar.Visible = false;
         }
-
         private void iconRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             iconRestaurar.Visible = false;
             iconMaximizar.Visible = true;
         }
-
         private void iconMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void pnBarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void lblTitulo_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnVentas_Click(object sender, EventArgs e)
         {
             Facturacion Fac = new Facturacion();
             Fac.Show();
-
-
         }
-
         private void btnClientes_Click(object sender, EventArgs e)
         {
             Clientes Clients = new Clientes();
             Clients.Show();
-
-
         }
-
-      
-
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             MessageBox.Show("El autor de esta practica ya no le quedaban neuronas", "Proximamente Formulario Empleados, con roles y login" , MessageBoxButtons.OK , MessageBoxIcon.Information);
